@@ -1,0 +1,10 @@
+<p>
+
+
+LOCATION NAME: <%= @location.name %>
+<br />
+LOCATION ADDRESS: <%= @location.address %>
+<br />
+<%= link_to "Edit location", edit_location_path(@location) %>
+<%= render 'shared/flash_messages' if !flash.empty? %>
+</p>

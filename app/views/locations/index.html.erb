@@ -1,0 +1,15 @@
+<h3>LOCATIONS INDEX</h3>
+
+<% @locations.each do |f|%>
+<p>
+
+
+NAME: <%= f.name %>
+<br />
+ADDRESS: <%= f.address %>
+<br />
+<%= link_to "Visit #{f.name}", location_path(f) %>
+<%= link_to "Edit location", edit_location_path(f) %>
+<br />
+</p>
+<% end %>
