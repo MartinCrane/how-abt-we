@@ -1,0 +1,7 @@
+<%= form_for @account, url: registrations_path do |f| %>
+Username: <%= f.text_field :username %>
+Email: <%= f.email_field :email %>
+Password: <%= f.password_field :password %>
+Confirm Password: <%= f.password_field :password_confirmation %>
+<%= f.submit %>
+<% end %>

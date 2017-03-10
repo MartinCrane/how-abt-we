@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HowAboutWe</title>
+    <%= csrf_meta_tags %>
+
+    <% #stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% #javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= link_to "Logout", logout_path, method: :delete %>
+
+    <br />
+    <br />
+    <%= yield %>
+    <br />
+    <br />
+    <br />
+    <br />
+    <% @accounts.each do |a| %>
+      <br />
+      USER
+      <%= a.username %>
+      <br />
+      <%= a.email %>
+      <br />
+    <% end   %>
+  </body>
+</html>
