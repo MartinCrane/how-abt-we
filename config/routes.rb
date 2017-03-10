@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+
+  resources :locations
   resources :events, only: [:new, :create, :show]
+
   root 'static#home'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
