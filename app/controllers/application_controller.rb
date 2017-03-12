@@ -18,6 +18,5 @@ class ApplicationController < ActionController::Base
 
   def set_accounts
     @accounts = Account.all
-
   end
 end
