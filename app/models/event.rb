@@ -3,6 +3,7 @@ class Event < ApplicationRecord
   has_many :partcipants
   has_many :comments
   has_many :accounts, through: :participants
+  belongs_to :location
 
   has_one :location
   validates :name, presence: true, length: {maximum: 75}
