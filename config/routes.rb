@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
+  post '/locations/confirm', to: 'locations#confirm'
+
   resources :accounts, only: [:show]
   resources :registrations, only: [:new, :create]
   # resources :accounts
