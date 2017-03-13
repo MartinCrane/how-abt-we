@@ -1,4 +1,4 @@
-<%= form_for @location, url: '/locations', method: :post do |f| %>
+<%= form_for @location do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name %>
 <br />
@@ -20,5 +20,5 @@
 <%= f.hidden_field :formatted_address %>
 <%= f.hidden_field :country %>
 <br />
-<%= f.submit "Confirm Location" %>
+<%= f.submit "Edit Location" %>
 <% end %>
