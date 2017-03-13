@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
 
-  resources :locations
+  resources :locations do
+    resources :events, only: [:index, :show]
+  end
   resources :events, only: [:index, :new, :create, :show, :update] do
     resources :participants, only: [:create, :destroy]
     resources :comments, only: [:create, :update, :destroy]
