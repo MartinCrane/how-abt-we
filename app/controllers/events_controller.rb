@@ -19,6 +19,8 @@ class EventsController < ApplicationController
   end
 
   def show
+    @participant=Participant.new
+    @participants=Participant.where(event: @event)
   end
 
   private

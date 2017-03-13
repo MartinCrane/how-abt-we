@@ -3,7 +3,7 @@ class AccountsController < ApplicationController
   before_action :set_account
 
   def show
-    
+    @events=Event.where(creator: @account)
   end
 
 

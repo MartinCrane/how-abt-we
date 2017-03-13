@@ -1,1 +1,14 @@
-<h1 style="font-size: 500px"><%= @event.name %></h1>
+<h1 style="font-size: 50px"><%= @event.name %></h1>
+
+<%= form_for [@event, @participant] do |f| %>
+<%= f.submit "RSVP" %>
+<% end %>
+
+PARTICIPANTS
+<% if @participants %>
+<% @participants.each do |participant| %>
+  <%= participant.account.username %>
+<% end %>
+<% else %>
+YOU HAVE NO FRIENDS :(
+<% end %>
