@@ -1,0 +1,5 @@
+<h1>Upcoming Events</h1>
+<div class="row">
+  <%= render partial: 'events/event', collection: @events.order(:event_date) %>
+
+</div>

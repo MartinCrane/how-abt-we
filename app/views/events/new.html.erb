@@ -1,17 +1,1 @@
-<%= form_for @event do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-
-  <%= f.label :event_date %>
-  <%= f.date_field :event_date %><br>
-
-  <%= f.label :start_time %>
-  <%= f.time_field :start_time %><br>
-
-  <%= f.label :end_time %>
-  <%= f.time_field :end_time %><br>
-
-  <%# label_tag "event location" %>
-  <%# text_field_tag "event[location]" %><br>
-  <%= f.submit %>
-<% end %>
+<%= render partial: 'events/form', locals:{event: @event} %>

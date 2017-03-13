@@ -1,6 +1,20 @@
 class EventsController < ApplicationController
   before_action :require_login
-  before_action :set_event, only: [:show, :edit, :destroy]
+  before_action :set_event, only: [:update, :show, :destroy]
+
+  def index
+    @events=Event.all
+  end
+
+  def my_events
+    @events=current_user.hostings
+    render :index
+  end
+
+  def attending_events
+    @events = current_user.events
+    render :index
+  end
 
   def new
     @event = Event.new
@@ -13,19 +27,32 @@ class EventsController < ApplicationController
       event.save
       redirect_to event
     else
-      # flash[:error]
-      render :new
+      flash[:error]= event.errors.full_messages[0]
+      redirect_to new_event_path
     end
   end
 
   def show
+    @comment=Comment.new
+    @comments=Comment.where(event: @event)
+    @attending=Participant.exists?(@event, current_user)
     @participant=Participant.new
     @participants=Participant.where(event: @event)
   end
 
+  def update
+    @event.update(event_params)
+    if @event.valid?
+      redirect_to @event
+    else
+      flash[:error]=@event.errors.full_messages[0]
+      redirect_to @event
+    end
+  end
+
   private
   def event_params
-    params.require(:event).permit(:name, :creator_id, :location_id, :event_date, :start_time, :end_time)
+    params.require(:event).permit(:name, :capacity, :creator_id, :location_id, :event_date, :start_time, :end_time)
   end
 
   def set_event
