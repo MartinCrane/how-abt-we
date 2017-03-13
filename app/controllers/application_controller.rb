@@ -2,8 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_accounts
 
-  private
-
   def logged_in?
     !!session[:account_id]
   end
@@ -20,6 +18,5 @@ class ApplicationController < ActionController::Base
 
   def set_accounts
     @accounts = Account.all
-
   end
 end

@@ -3,7 +3,9 @@
 
 LOCATION NAME: <%= @location.name %>
 <br />
-LOCATION ADDRESS: <%= @location.address %>
+LOCATION ADDRESS: <%= @location.formatted_address %>
+<br />
+LOCATION MAP: <a href="http://maps.google.com/?q=<%=@location.latitude%>,<%=@location.longitude%>">Google Maps</a>
 <br />
 <%= link_to "Edit location", edit_location_path(@location) %>
 <%= render 'shared/flash_messages' if !flash.empty? %>

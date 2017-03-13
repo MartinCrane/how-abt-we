@@ -1,5 +1,8 @@
 class Event < ApplicationRecord
   belongs_to :creator, foreign_key: "creator_id", class_name: "Account"
+  has_many :partcipants
+  has_many :accounts, through: :participants
+  
   has_one :location
   validates :name, presence: true, length: {maximum: 75}
 

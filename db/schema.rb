@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20170310223330) do
+ActiveRecord::Schema.define(version: 20170313131412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,15 +23,6 @@ ActiveRecord::Schema.define(version: 20170310223330) do
     t.datetime "updated_at",      null: false
   end
 
-
-  create_table "locations", force: :cascade do |t|
-    t.string   "name"
-    t.string   "address"
-    t.decimal  "latitude"
-    t.decimal  "longitude"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-
   create_table "events", force: :cascade do |t|
     t.string   "name"
     t.integer  "creator_id"
@@ -42,7 +32,28 @@ ActiveRecord::Schema.define(version: 20170310223330) do
     t.date     "event_date"
     t.time     "start_time"
     t.time     "end_time"
+  end
 
+  create_table "locations", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "street_number"
+    t.string   "road"
+    t.string   "state"
+    t.string   "city"
+    t.string   "country"
+    t.string   "formatted_address"
+  end
+
+  create_table "participants", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
