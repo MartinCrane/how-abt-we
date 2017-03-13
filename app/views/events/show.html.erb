@@ -8,7 +8,6 @@
 <% if @event.location %>
   <%= render partial: 'locations/location_map', locals: {location: @event.location, key: @key} %>
 <% end %>
-
 <% if @event.creator==current_user && (@event.event_date.nil? || @event.event_date >= Date.today) %>
 --- perhaps show this in a modal -- <br />
   <%= render partial: 'events/form', locals:{event: @event} %>
