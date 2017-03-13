@@ -1,13 +1,19 @@
-<p>
-
-
-LOCATION NAME: <%= @location.name %>
-<br />
-LOCATION ADDRESS: <%= @location.formatted_address %>
-<br />
-LOCATION MAP: <a href="http://maps.google.com/?q=<%=@location.latitude%>,<%=@location.longitude%>">Google Maps</a>
-<br />
-<%= link_to "Edit location", edit_location_path(@location) %>
-<%= render 'shared/flash_messages' if !flash.empty? %>
 <%= render partial: 'location_map', locals: {location: @location, key: @key} %>
-</p>
+<div class="container">
+  <div class="col-md-4">
+  <h3><%= @location.name %></h3>
+    Address:<br />
+    <p><%= @location.formatted_address %></p>
+    <br />
+    LOCATION MAP: <a href="http://maps.google.com/?q=<%=@location.latitude%>,<%=@location.longitude%>">Google Maps</a>
+    <br />
+    <%= link_to "Edit location", edit_location_path(@location) %>
+    <%= render 'shared/flash_messages' if !flash.empty? %>
+
+  </div>
+  <div class="col-md-8">
+  <h3>Events at this location</h3>
+  <%= render partial: 'events/event', collection: @location.events.order(:event_date) %>
+  </p>
+  </div>
+</div>

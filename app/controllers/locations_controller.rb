@@ -8,57 +8,48 @@ class LocationsController < ApplicationController
   end
 
   def new
-
     @location = Location.new
   end
 
   def confirm
     location = Location.new(location_params)
     location.gather_api_location_data
-    @location = location
-    session[:temp_location] = @location
+    @location=location
+    store_temp_location
     render "confirm"
   end
 
   def create
-    flash[:error] = ''
-    confirm_location = Location.new(location_params)
-    #is edited info differetn than first search?
-    if compare_location_info(session[:temp_location], confirm_location)
-
-      if confirm_location.save
-        session[:temp_location] = {}
-        redirect_to confirm_location
-      else
-        flash[:error] = "Location already exists, bro"
-        @location = confirm_location
-        render "confirm"
-        return
-      end
+    clear_flash_errors
+    location = Location.new(location_params)
+    location.did_user_edit?(session[:temp_location])
+    if location.save
+      clear_temp_location
+      redirect_to location
     else
-      confirm_location.reformat_address
-      confirm_location.gather_api_location_data
-      @location=confirm_location
-      session[:temp_location] = @location
-      flash[:error] = "Thank you. Does this look correct?"
+      flash[:error] = "Location already exists, bro"
+      @location=location
       render "confirm"
       return
     end
-    # flash[:error] = "Location entry invalid. Please supply name and address."
   end
 
   def show
   end
 
   def edit
-
   end
 
   def update
-    location = set_location
-    location.update(location_params)
-    flash[:message] = "Location has been updated."
-    redirect_to location
+    location = Location.find_by(id: params[:id])
+    if location.update(location_params)
+      location.update_api_data
+      flash[:message] = "Location has been updated."
+      redirect_to location
+    else
+      flash[:message] = location.errors
+      redirect_to edit_location_path(location)
+    end
   end
 
   def destroy
@@ -75,14 +66,19 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
   end
 
-  def compare_location_info(argument1,argument2)
-    argument1["street_number"] == argument2.street_number &&
-    argument1["road"] == argument2.road &&
-    argument1["state"] == argument2.state &&
-    argument1["country"] == argument2.country
-  end
-
   def set_key
     @key = ENV["google_key2"]
+  end
+
+  def store_temp_location
+    session[:temp_location] = @location
+  end
+
+  def clear_temp_location
+    session.delete(:temp_location)
+  end
+
+  def clear_flash_errors
+    flash[:error] = ''
   end
 end

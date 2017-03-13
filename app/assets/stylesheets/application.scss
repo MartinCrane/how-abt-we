@@ -19,6 +19,7 @@
 
 body {
  background-color: #505050;
+ color: white;
 }
 
 #logo{
@@ -67,4 +68,23 @@ body {
   -webkit-transition: 1s;
   color: #3E9AB2;
   text-decoration: none;
+}
+
+#map{
+  width: 100%;
+  margin-top: 0px;
+  top: 0px;
+  z-index: 0;
+}
+
+.navbar{
+}
+#map-overlay{
+  position: relative;
+  z-index: 1; /* The z-index should be higher than Google Maps */
+  width: 300px;
+  padding: 10px;
+  background-color: #fff;
+  height: auto; /* Set the opacity for a slightly transparent Google Form */
+  color: #000;
 }

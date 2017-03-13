@@ -3,7 +3,10 @@
 Name: <%= @account.username %>
 Email: <%= @account.email %>
 
-<%= present_event(current_user) %>
+<Br />
+<% present_event(current_user).each do |key, value| %>
+<%= key %>: <%= value %><br />
+<% end %>
 
 EVENTS<br />
 <% @events.each do |event| %>
