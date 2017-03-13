@@ -1,13 +1,14 @@
 class EventsController < ApplicationController
   before_action :require_login
   before_action :set_event, only: [:show, :edit, :destroy]
+
   def new
     @event = Event.new
   end
 
   def create
     event = Event.init_event(current_user, event_params)
-    byebug
+
     if event.valid?
       event.save
       redirect_to event
