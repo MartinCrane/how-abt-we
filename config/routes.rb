@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   resources :locations
-  resources :events, only: [:new, :create, :show]
+  resources :events, only: [:new, :create, :show] do
+    resources :participants, only: [:create, :new, :destroy, :edit]
+  end
 
   root 'static#home'
   get '/login', to: 'sessions#new'

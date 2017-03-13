@@ -2,3 +2,8 @@
 <br />
 Name: <%= @account.username %>
 Email: <%= @account.email %>
+
+EVENTS<br />
+<% @events.each do |event| %>
+<%= link_to event.name, event_path(event) %>
+<% end %>
