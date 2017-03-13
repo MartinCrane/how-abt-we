@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
   def set_accounts
     @accounts = Account.all
   end
+
+  def set_key
+    @key = ENV["google_key2"]
+  end
 end

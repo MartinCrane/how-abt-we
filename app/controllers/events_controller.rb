@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :require_login
+  before_action :set_key, only: [:show]
   before_action :set_event, only: [:update, :show, :destroy]
 
   def index
@@ -22,7 +23,7 @@ class EventsController < ApplicationController
 
   def create
     event = Event.init_event(current_user, event_params)
-
+    # event.location = Location.find(event_params[:location_id])
     if event.valid?
       event.save
       redirect_to event
@@ -42,6 +43,7 @@ class EventsController < ApplicationController
 
   def update
     @event.update(event_params)
+    @event.location = Location.find(event_params[:location_id])
     if @event.valid?
       redirect_to @event
     else

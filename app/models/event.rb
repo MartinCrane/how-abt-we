@@ -1,11 +1,10 @@
 class Event < ApplicationRecord
   belongs_to :creator, foreign_key: "creator_id", class_name: "Account"
-  has_many :partcipants
+  has_many :participants
   has_many :comments
   has_many :accounts, through: :participants
-  belongs_to :location
+  belongs_to :location, optional: true
 
-  has_one :location
   validates :name, presence: true, length: {maximum: 75}
   validates :capacity, numericality:{greater_than: 0}
   validate :after_today, :start_end
@@ -21,7 +20,6 @@ class Event < ApplicationRecord
 
   def self.init_event(user, params)
     # location = Location.find_or_create_by(name: params[:location])
-
     event = self.new(params)
     event.creator = user
     event
