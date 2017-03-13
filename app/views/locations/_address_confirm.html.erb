@@ -1,0 +1,25 @@
+<%= form_for @location do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<br />
+<%= f.label :formatted_address %>
+<%= f.text_field :formatted_address %>
+<br />
+<%= f.label :street_number %>
+<%= f.text_field :street_number %>
+<br />
+<%= f.label :road %>
+<%= f.text_field :road %>
+<br />
+<%= f.label :city %>
+<%= f.text_field :city %>
+<br />
+<%= f.label :state %>
+<%= f.text_field :state %>
+<br />
+<%= f.label :country %>
+<%= f.text_field :country %>
+<br />
+
+<%= f.submit "Confirm Location" %>
+<% end %>
