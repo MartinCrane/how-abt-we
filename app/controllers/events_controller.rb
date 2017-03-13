@@ -23,7 +23,7 @@ class EventsController < ApplicationController
 
   def create
     event = Event.init_event(current_user, event_params)
-    # event.location = Location.find(event_params[:location_id])
+    event.location = Location.find(event_params[:location_id]) unless event_params[:location_id].empty?
     if event.valid?
       event.save
       redirect_to event
@@ -43,7 +43,7 @@ class EventsController < ApplicationController
 
   def update
     @event.update(event_params)
-    @event.location = Location.find(event_params[:location_id])
+    @event.location = Location.find(event_params[:location_id]) unless event_params[:location_id].empty?
     if @event.valid?
       redirect_to @event
     else
