@@ -5,7 +5,7 @@ module LocationAPI
 
   def googe_api_fetch
     googe_url = "https://maps.googleapis.com/maps/api/geocode/json?address="
-    google_api_key = "&key=AIzaSyCa1oTjGDdo92X0CzBUleXYjh_vtMhnJxY"
+    google_api_key = ""
     @location_data =  JSON.parse(RestClient.get(googe_url + self.address + google_api_key))
   end
 
