@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
   resources :locations
-  resources :events, only: [:new, :create, :show] do
-    resources :participants, only: [:create, :new, :destroy, :edit]
+  resources :events, only: [:index, :new, :create, :show, :update] do
+    resources :participants, only: [:create, :new, :destroy]
   end
+
+  get '/my-events', to: 'events#my_events'
+  get '/attending', to: 'events#attending_events'
 
   root 'static#home'
   get '/login', to: 'sessions#new'
