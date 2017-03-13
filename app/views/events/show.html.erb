@@ -5,7 +5,7 @@
 <p>Start: <%= @event.start_time %></p>
 <p>End: <%= @event.end_time %></p>
 
-<% if @event.creator==current_user %>
+<% if @event.creator==current_user && (@event.event_date.nil? || @event.event_date >= Date.today) %>
 --- perhaps show this in a modal -- <br />
   <%= render partial: 'events/form', locals:{event: @event} %>
 -----------------------------------

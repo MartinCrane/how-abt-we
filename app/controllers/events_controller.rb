@@ -27,8 +27,8 @@ class EventsController < ApplicationController
       event.save
       redirect_to event
     else
-      # flash[:error]
-      render :new
+      flash[:error]= event.errors.full_messages[0]
+      redirect_to new_event_path
     end
   end
 
