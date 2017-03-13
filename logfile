@@ -15,3 +15,11 @@ LOG:  autovacuum launcher shutting down
 LOG:  received smart shutdown request
 LOG:  shutting down
 LOG:  database system is shut down
+LOG:  database system was shut down at 2017-03-12 15:43:52 EDT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  database "how-abt-we_development" already exists
+STATEMENT:  CREATE DATABASE "how-abt-we_development" ENCODING = 'unicode'
+ERROR:  database "how-abt-we_test" already exists
+STATEMENT:  CREATE DATABASE "how-abt-we_test" ENCODING = 'unicode'

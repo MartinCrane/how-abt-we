@@ -1,27 +1,26 @@
 class LocationsController < ApplicationController
   before_action :require_login
-  before_action :set_event, only: [:show, :edit, :destroy]
+  before_action :set_location, only: [:show, :edit, :destroy]
 
   def index
     @locations = Location.all
   end
 
   def new
-    flash[:address_confirm] = nil
     @location = Location.new
   end
 
-  def create
-
+  def confirm
     location = Location.new(location_params)
-    #fetch address details and confirm address on rerender. Should this be separate #confirm action?
-    unless location.latitude?
-      location.gather_api_location_data
-      flash[:address_confirm] = "Please confirm the following is the correct address"
-      @location = location
-      render "new"
-      return
-    end
+    location.gather_api_location_data
+    @location = location
+    byebug
+    render "confirm"
+  end
+
+  def create
+    byebug
+    location = Location.new(location_params)
     #validation
     if !!location.save
       redirect_to location
@@ -51,7 +50,7 @@ class LocationsController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit(:name, :address)
+    params.require(:location).permit(:name, :address, :latitude, :longitude, :road, :city, :street_number, :formatted_address, :country, :state)
   end
 
   def set_location
