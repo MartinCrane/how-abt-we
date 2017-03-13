@@ -2,9 +2,6 @@
 <%= f.label :name %>
 <%= f.text_field :name %>
 <br />
-<%= f.label :formatted_address %>
-<%= f.text_field :formatted_address %>
-<br />
 <%= f.label :street_number %>
 <%= f.text_field :street_number %>
 <br />
@@ -17,11 +14,11 @@
 <%= f.label :state %>
 <%= f.text_field :state %>
 <br />
-<%= f.label :country %>
-<%= f.text_field :country %>
 <%= f.hidden_field :longitude %>
 <%= f.hidden_field :latitude %>
 <%= f.hidden_field :address %>
+<%= f.hidden_field :formatted_address %>
+<%= f.hidden_field :country %>
 <br />
 <%= f.submit "Confirm Location" %>
 <% end %>

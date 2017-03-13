@@ -3,9 +3,13 @@ module LocationAPI
   require 'rest-client'
   require 'json'
 
+  def reformat_address
+      self.address = self.street_number.to_s + " " + self.road + " "+ self.city
+  end
+
   def googe_api_fetch
     googe_url = "https://maps.googleapis.com/maps/api/geocode/json?address="
-    google_api_key = ""
+    google_api_key = ENV["google_key"]
     @location_data =  JSON.parse(RestClient.get(googe_url + self.address + google_api_key))
   end
 
@@ -34,7 +38,7 @@ module LocationAPI
       end
     end
     #inputs long and lat
-    self.latitude = lat = @location_data["results"][0]["geometry"]["location"]["lat"]
+    self.latitude = @location_data["results"][0]["geometry"]["location"]["lat"]
     self.longitude = @location_data["results"][0]["geometry"]["location"]["lng"]
     self.formatted_address = @location_data["results"][0]["formatted_address"]
     self.save
