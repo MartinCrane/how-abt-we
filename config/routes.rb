@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
+
   resources :locations
   resources :events, only: [:index, :new, :create, :show, :update] do
-    resources :participants, only: [:create, :new, :destroy]
+    resources :participants, only: [:create, :destroy]
+    resources :comments, only: [:create, :update, :destroy]
   end
 
   get '/my-events', to: 'events#my_events'

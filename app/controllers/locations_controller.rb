@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   before_action :require_login
-  before_action :set_event, only: [:show, :edit, :destroy]
+  before_action :set_location, only: [:show, :edit, :destroy]
 
   def index
     @locations = Location.all

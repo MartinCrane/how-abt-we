@@ -33,3 +33,10 @@
 <% else %>
 YOU HAVE NO FRIENDS :(
 <% end %>
+
+<h2>Comments</h2>
+<%= form_for [@event, @comment] do |f| %>
+<%= f.text_area :comment %>
+<%= f.submit "Make a comment" %>
+<% end %>
+<%= render partial: 'events/comment', collection: @comments.order("created_at DESC") %>

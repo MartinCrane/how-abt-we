@@ -33,6 +33,8 @@ class EventsController < ApplicationController
   end
 
   def show
+    @comment=Comment.new
+    @comments=Comment.where(event: @event)
     @attending=Participant.exists?(@event, current_user)
     @participant=Participant.new
     @participants=Participant.where(event: @event)
