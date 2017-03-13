@@ -6,7 +6,7 @@
 
 NAME: <%= f.name %>
 <br />
-ADDRESS: <%= f.address %>
+ADDRESS: <%= f.formatted_address %>
 <br />
 <%= link_to "Visit #{f.name}", location_path(f) %>
 <%= link_to "Edit location", edit_location_path(f) %>
