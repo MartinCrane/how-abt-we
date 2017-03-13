@@ -1,6 +1,7 @@
 class LocationsController < ApplicationController
   before_action :require_login
   before_action :set_location, only: [:show, :edit, :destroy]
+  before_action :set_key, only: [:show]
 
   def index
     @locations = Location.all
@@ -79,5 +80,9 @@ class LocationsController < ApplicationController
     argument1["road"] == argument2.road &&
     argument1["state"] == argument2.state &&
     argument1["country"] == argument2.country
+  end
+
+  def set_key
+    @key = ENV["google_key2"]
   end
 end
