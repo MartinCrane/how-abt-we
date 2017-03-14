@@ -8,7 +8,3 @@
 20.times do
   Account.create(username: Faker::Cat.name, email: Faker::Internet.email, password: "password")
 end
-
-20.times do
-  Location.create(name: Faker::)
-end

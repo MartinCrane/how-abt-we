@@ -1,7 +1,7 @@
-<h3>LOCATIONS INDEX</h3>
+<h1 id="title">All Locations</h1>
 
 
-<% @locations.each do |f|%>
+<!-- <% @locations.each do |f|%>
 <p>
 
 
@@ -15,8 +15,7 @@ ADDRESS: <%= f.formatted_address %>
 <%= link_to "Edit location", edit_location_path(f) %>
 <br />
 </p>
-<% end %>
+<% end %> -->
 
 
 <%= render partial: 'locations/location', collection: @locations, locals:{key: @key} %>
-
