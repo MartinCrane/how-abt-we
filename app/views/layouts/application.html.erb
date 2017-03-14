@@ -63,12 +63,13 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-
-    <br />
-    <br />
+    <div id="map" style="display: none;"></div>
     <%= render 'shared/flash_messages' if !flash.empty? %>
 
-    <%= yield %>
+    <div class="container">
+
+      <%= yield %>
+    </div>
 
 
     <br />
