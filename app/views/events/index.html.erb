@@ -1,5 +1,15 @@
+<h1>Happening Today</h1>
+<div class="row">
+<%= render partial: 'events/event', collection: @events.where('event_date = ?',Date.today).order(:event_date) %>
+</div>
+
 <h1>Upcoming Events</h1>
 <div class="row">
-  <%= render partial: 'events/event', collection: @events.order(:event_date) %>
+<%= render partial: 'events/event', collection: @events.where('event_date > ?',Date.today).order(:event_date) %>
+</div>
 
+
+<h1>Past Events</h1>
+<div class="row">
+<%= render partial: 'events/event', collection: @events.where('event_date < ?',Date.today).order(:event_date) %>
 </div>
