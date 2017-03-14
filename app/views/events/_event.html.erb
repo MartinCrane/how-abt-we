@@ -1,6 +1,18 @@
-<div style="width: 33%; margin: 0; padding: 0; float: left;">
-  <div style="margin: 5px; padding: 5px; height: 200px; background-color: #eee;">
-    <%= link_to event.name, event %><br />
-    <%= event.event_date %>
+<!-- <div style="width: 33%; margin: 0; padding: 0; float: left;"> -->
+  <!-- <div style="margin: 5px; padding: 5px; height: 200px; background-color: #eee;"> -->
+<div class="col-md-3" style="margin:0; padding:0;">
+  <% if event.location %>
+    <div style="margin: 2px; height: 200px; background-image: url(https://maps.googleapis.com/maps/api/staticmap?center=<%= event.location.latitude %>,<%= event.location.longitude %>&zoom=13&scale=false&size=600x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000);">
+  <% else %>
+    <div style="margin: 2px; height: 200px; background-color: #eee;">
+  <% end %>
+  <div style="text-align: center;background: rgba(255, 255, 255, .4); height: 100%; width: 100%;padding: 5px;">
+    <h3><%= link_to event.name, event %></h3>
+    <h4><%= event.event_date.strftime("%a, %b, %e") %></h4>
+    <% if event.location %>
+    <%= event.location.name %><br />
+    <%= event.location.formatted_address %>
+    <% end %>
   </div>
+</div>
 </div>

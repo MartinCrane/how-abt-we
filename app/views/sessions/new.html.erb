@@ -1,7 +1,16 @@
-<%= form_for @account, url: login_path do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username%>
-  <%= f.label :password %>
-  <%= f.password_field :password%>
-  <%= f.submit "Log In" %>
-<% end %>
+<div class="row">
+  <%= form_for @account, url: login_path do |f| %>
+  <div class="col-md-6 session-form">
+    <%= f.label :username, id: "label" %>
+    <%= f.text_field :username%>
+  </div>
+  <div class="col-md-6 session-form">
+    <%= f.label :password, id: "label" %>
+    <%= f.password_field :password%>
+  </div>
+  <div class="col-md-12 submit">
+    <%= f.submit "Log In" %>
+  </div>
+  <% end %>
+
+</div>

@@ -1,5 +1,6 @@
 <h3>LOCATIONS INDEX</h3>
 
+
 <% @locations.each do |f|%>
 <p>
 
@@ -16,3 +17,6 @@ ADDRESS: <%= f.formatted_address %>
 </p>
 <% end %>
 </div>
+
+<%= render partial: 'locations/location', collection: @locations, locals:{key: @key} %>
+

@@ -1,0 +1,18 @@
+<div class="col-md-3">
+  <div style="margin: 2px; padding: 10px 5px 15px 5px; text-align: center; height: 100%;<%= "background-color: #eee".html_safe if (Date.today+upcoming[0].to_i)==Date.today %>">
+
+  <h3><%=  (Date.today+upcoming[0].to_i).strftime("%a, %b, %e") %></h3>
+  <% if !upcoming[1].empty? %>
+    <% upcoming[1].each do |event| %>
+      <% if current_user==event.creator %>
+      <strong>Hosting: </strong>
+      <% else %>
+      <strong>Attending: </strong>
+      <% end %>
+      <%= link_to event.name, event %>
+    <% end %>
+  <% else %>
+    <em>You have no events</em>
+  <% end %>
+  </div>
+</div>
