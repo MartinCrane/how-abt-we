@@ -1,14 +1,7 @@
-// ACCOUNT PAGE
-<br />
-Name: <%= @account.username %>
-Email: <%= @account.email %>
+<h1>Welcome, <%= @account.username %></h1>
+<h2>Events this week:</h2>
 
-<Br />
-<% present_event(current_user).each do |key, value| %>
-<%= key %>: <%= value %><br />
-<% end %>
+<div class="row" style="min-height: 100px;">
 
-EVENTS<br />
-<% @events.each do |event| %>
-<%= link_to event.name, event_path(event) %>
-<% end %>
+  <%= render partial: 'accounts/upcoming', collection: present_event(current_user) %>
+</div>
