@@ -1,6 +1,4 @@
-<div class="container">
-
-  <div class="col-md-8">
+<div class="col-md-8">
     <h1 id="title" style="font-size: 50px"><%= @event.name %></h1>
     <p>Creator of this event: <%= @event.creator.username %></p>
     <p>Capacity: <%= @event.capacity %></p>
@@ -30,17 +28,22 @@
     <% end %>
   </div>
   <div class="col-md-4">
+  <% if @event.event_date >= Date.today %>
     <% if @attending %>
       <h2>You are attending this event!</h2>
       <%= form_for [@event, @attending], method: :delete do |f| %>
-      <%= f.submit "I can't attend" %>
+      <%= f.submit "I can't attend", class: "btn btn-primary" %>
       <% end %>
     <% else %>
       <h2>Are you attending?</h2>
       <%= form_for [@event, @participant] do |f| %>
-      <%= f.submit "I want to go!" %>
+      <%= f.submit "I want to go!", class: "btn btn-primary" %>
       <% end %>
     <% end %>
+  <% else %>
+    <h2>This event is over</h2>
+    If you attended, please rate this event
+  <% end %>
 
 
 
@@ -49,9 +52,8 @@
     <h2>Comments</h2>
     <%= form_for [@event, @comment] do |f| %>
     <%= f.text_area :comment %>
-    <%= f.submit "Make a comment" %>
+    <%= f.submit "Make a comment", class: "btn btn-primary" %>
     <% end %>
     <%= render partial: 'events/comment', collection: @comments.order("created_at DESC") %>
 
   </div>
-</div>
