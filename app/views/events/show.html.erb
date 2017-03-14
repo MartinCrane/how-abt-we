@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="col-md-4">
-    <h1 style="font-size: 50px"><%= @event.name %></h1>
+  <div class="col-md-8">
+    <h1 id="title" style="font-size: 50px"><%= @event.name %></h1>
     <p>Creator of this event: <%= @event.creator.username %></p>
     <p>Capacity: <%= @event.capacity %></p>
     <p>Date: <%= @event.event_date %></p>
@@ -28,7 +28,7 @@
     -----------------------------------
     <% end %>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-4">
     <% if @attending %>
       <h2>You are attending this event!</h2>
       <%= form_for [@event, @attending], method: :delete do |f| %>
