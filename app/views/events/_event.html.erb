@@ -8,10 +8,10 @@
   <% end %>
   <div style="text-align: center;background: rgba(255, 255, 255, .4); height: 100%; width: 100%;padding: 5px;">
     <h3><%= link_to event.name, event %></h3>
-    <h4><%= event.event_date.strftime("%a, %b, %e") %></h4>
+    <h4 id="details"><%= event.event_date.strftime("%a, %b, %e") %></h4>
     <% if event.location %>
-    <%= event.location.name %><br />
-    <%= event.location.formatted_address %>
+    <h4 id="details"><%= event.location.name %></h4>
+    <h4 id="details"><%= event.location.formatted_address %></h4>
     <% end %>
   </div>
 </div>

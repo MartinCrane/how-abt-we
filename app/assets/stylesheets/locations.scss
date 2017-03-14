@@ -1,7 +1,37 @@
 // Place all the styles related to the Locations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.remove-margin{
+  margin-top: 0;
+}
+
 #map {
  height: 400px;
  width: 100%;
+}
+
+#widen{
+  width: 15em;
+}
+
+h1{
+  text-align: center;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+#title{
+  color: #3E9AB2;
+}
+
+div[class ^= "col"]{
+  text-align: center;
+}
+
+.push-down{
+  margin-top: 5em;
+}
+
+.separate{
+  margin-top: 8em;
 }

@@ -16,6 +16,82 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+
+ .float {
+   width: auto;
+  //  height: 500px;
+  //  opacity: .8;
+   font-style: italic;
+   font-weight: bolder;
+   color: rgb(0, 0, 0);
+  //  background-color: rgb(0, 0, 0);
+   -webkit-transform: matrix3d(1,0,0,0,0.00,1,0.002,0,0,-0.02,1,0,5,0,0,1);
+ }
+
+ @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+
+body {
+ background-color: #505050;
+ color: white;
+}
+
+#logo{
+  text-align: center;
+  font-family: 'Titillium Web', sans-serif;
+  color: #3E9AB2;
+  font-size: 8em;
+}
+
+.enter{
+  margin-top: 15%;
+}
+
+a{
+  color: #3E9AB2;
+  text-decoration: underline;
+}
+
+a:hover{
+  color:white;
+}
+
+#login {
+ font-size: 4em;
+ color: black;
+ text-decoration: none;
+ text-align: center;
+ margin: auto;
+}
+
+#login a{
+  -webkit-transition: 5s;
+  color: white;
+}
+#login a:hover{
+  -webkit-transition: 1s;
+  color: #3E9AB2;
+  text-decoration: none;
+}
+
+#register {
+ font-size: 4em;
+ color: black;
+ text-decoration: none;
+ text-align: center;
+ margin: auto;
+}
+
+#register a{
+  -webkit-transition: 5s;
+  color: white;
+}
+
+#register a:hover{
+  -webkit-transition: 1s;
+  color: #3E9AB2;
+  text-decoration: none;
+}
+
 body{
   margin-top: 50px;
 }
@@ -27,6 +103,10 @@ body{
 }
 
 .navbar{
+}
+
+.navbar a{
+  text-decoration: none;
 }
 #map-overlay{
   position: relative;

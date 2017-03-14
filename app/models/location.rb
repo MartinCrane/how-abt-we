@@ -7,4 +7,28 @@ class Location < ApplicationRecord
 
   include LocationAPI
 
+  def compare_location_info(temp_location,new_location)
+    temp_location["street_number"] == new_location.street_number &&
+    temp_location["road"] == new_location.road &&
+    temp_location["state"] == new_location.state &&
+    temp_location["country"] == new_location.country
+  end
+
+  def did_user_edit?(temp_location)
+    unless compare_location_info(temp_location, self)
+      self.reformat_address
+      self.gather_api_location_data
+      self
+      session[:temp_location] = self
+      flash[:error] = "Thank you. Does this look correct?"
+      render "confirm"
+      return
+    end
+  end
+
+  def update_api_data
+    self.reformat_address
+    self.gather_api_location_data
+    self.save
+  end
 end

@@ -1,3 +1,21 @@
 // Place all the styles related to the accounts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.present-events{
+  border-radius: 5px;
+  margin: 2px;
+  padding: 10px 5px 15px 5px;
+  text-align: center;
+  height: 100%;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.present-events-today{
+  border-radius: 5px;
+  margin: 2px;
+  padding: 10px 5px 15px 5px;
+  text-align: center;
+  height: 100%;
+  background-color: #3E9AB2;
+  font-family: 'Titillium Web', sans-serif;
+}

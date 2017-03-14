@@ -1,3 +1,22 @@
 <h3>LOCATIONS INDEX</h3>
 
+
+<% @locations.each do |f|%>
+<p>
+
+
+
+
+NAME: <%= f.name %>
+<br />
+ADDRESS: <%= f.formatted_address %>
+<br />
+<%= link_to "Visit #{f.name}", location_path(f) %>
+<%= link_to "Edit location", edit_location_path(f) %>
+<br />
+</p>
+<% end %>
+
+
 <%= render partial: 'locations/location', collection: @locations, locals:{key: @key} %>
+
