@@ -1,24 +1,40 @@
 <%= form_for @location, url: '/locations', method: :post do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<br />
-<%= f.label :street_number %>
-<%= f.text_field :street_number %>
-<br />
-<%= f.label :road %>
-<%= f.text_field :road %>
-<br />
-<%= f.label :city %>
-<%= f.text_field :city %>
-<br />
-<%= f.label :state %>
-<%= f.text_field :state %>
-<br />
+<div class="row">
+  <div class="col-md-4">
+    <%= f.label :name, id: 'label' %><br>
+    <%= f.text_field :name, id: 'input' %>
+  </div>
+
+  <div class="col-md-4">
+    <%= f.label :street_number, id: 'label' %><br>
+    <%= f.text_field :street_number, id: 'input' %>
+  </div>
+
+  <div class="col-md-4">
+    <%= f.label :road, id: 'label' %><br>
+    <%= f.text_field :road, id: 'input' %>
+  </div>
+</div>
+
+<div class="row push-down">
+  <div class="col-md-6">
+    <%= f.label :city, id: 'label' %><br>
+    <%= f.text_field :city, id: 'input' %>
+  </div>
+
+  <div class="col-md-6">
+    <%= f.label :state, id: 'label' %><br>
+    <%= f.text_field :state, id: 'input' %>
+  </div>
+</div>
 <%= f.hidden_field :longitude %>
 <%= f.hidden_field :latitude %>
 <%= f.hidden_field :address %>
 <%= f.hidden_field :formatted_address %>
 <%= f.hidden_field :country %>
-<br />
-<%= f.submit "Confirm Location" %>
+<div class="row">
+  <div class="col-md-12" id="move-submit">
+    <%= f.submit "Confirm Location", class: 'submit', id: 'widen' %>
+  </div>
+</div>
 <% end %>
