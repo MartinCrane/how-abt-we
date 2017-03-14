@@ -1,7 +1,33 @@
 <%= form_for @account, url: registrations_path do |f| %>
-Username: <%= f.text_field :username %>
-Email: <%= f.email_field :email %>
-Password: <%= f.password_field :password %>
-Confirm Password: <%= f.password_field :password_confirmation %>
-<%= f.submit %>
-<% end %>
+<div class="container register">
+  <div class="row">
+
+    <div class="col-md-6">
+      <%= f.label :username, id: 'label' %>
+      <%= f.text_field :username, id: 'input' %>
+    </div>
+
+    <div class="col-md-6">
+      <%= f.label :email, id: 'label' %>
+      <%= f.email_field :email, id: 'input' %>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-6">
+      <%= f.label :password, id: 'label' %>
+      <%= f.password_field :password, id: 'input' %>
+    </div>
+
+    <div class="col-md-6">
+      <%= f.label :password_confirmation, "Confirm", id: 'label' %>
+      <%= f.password_field :password_confirmation, id: 'input' %>
+    </div>
+  </div>
+
+  <div class="col-md-12", id="move-submit">
+    <%= f.submit "Get Started", class: "submit" %>
+  </div>
+  <% end %>
+</div>
