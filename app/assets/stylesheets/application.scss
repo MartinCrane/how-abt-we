@@ -15,6 +15,60 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+
+body {
+ background-color: #505050;
+ color: white;
+}
+
+#logo{
+  text-align: center;
+  font-family: 'Titillium Web', sans-serif;
+  color: #3E9AB2;
+  font-size: 8em;
+}
+
+.enter{
+  margin-top: 15%;
+}
+
+#login {
+ font-size: 4em;
+ color: black;
+ text-decoration: none;
+ text-align: center;
+ margin: auto;
+}
+
+#login a{
+  -webkit-transition: 5s;
+  color: black;
+}
+#login a:hover{
+  -webkit-transition: 1s;
+  color: #3E9AB2;
+  text-decoration: none;
+}
+
+#register {
+ font-size: 4em;
+ color: black;
+ text-decoration: none;
+ text-align: center;
+ margin: auto;
+}
+
+#register a{
+  -webkit-transition: 5s;
+  color: black;
+}
+
+#register a:hover{
+  -webkit-transition: 1s;
+  color: #3E9AB2;
+  text-decoration: none;
+}
 
 body{
   margin-top: 50px;

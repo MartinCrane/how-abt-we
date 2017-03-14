@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="body">
     <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -65,6 +65,7 @@
 
     <div id="map" style="display: none;"></div>
     <%= render 'shared/flash_messages' if !flash.empty? %>
+
     <div class="container">
 
       <%= yield %>
