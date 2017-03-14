@@ -4,7 +4,7 @@
 <% @locations.each do |f|%>
 <p>
 
-<div class="color_change">
+
 
 
 NAME: <%= f.name %>
@@ -16,7 +16,7 @@ ADDRESS: <%= f.formatted_address %>
 <br />
 </p>
 <% end %>
-</div>
+
 
 <%= render partial: 'locations/location', collection: @locations, locals:{key: @key} %>
 
