@@ -1,45 +1,16 @@
 
-<h1 id="logo">How About We //</h1>
 
 <div class="container">
   <div class="row enter">
-    <div class="rays">
-      <div class="sun">
-      </div>
+    <%= render partial: "static/sunset" %>
+    <div class="col-md-12">
+
+      <h1 id="logo">How About We //</h1>
     </div>
-    <div class="bg body1">
-</div>
-<div class="bg body2">
-</div>
-<div class="bg body3">
-</div>
-<div class="bg body4">
-</div>
-<div class="bg body5">
-</div>
 
 
-<div class="triangle tr1">
-</div>
-<div class="triangle tr2">
-</div>
-<div class="triangle tr3">
-</div>
-<div class="triangle tr4">
-</div>
-
-
-<div class="clouds">
-<div class="cloud">
-</div>
-<div class="cloud1">
-</div>
-<div class="cloud2">
-</div>
-<div class="cloud3">
-</div>
-</div>
     <div class="col-md-6" id="login">
+      <% #render partial: 'sessions/login', locals: {account: @account} %>
       <%= link_to "Login", login_path %>
     </div>
 
