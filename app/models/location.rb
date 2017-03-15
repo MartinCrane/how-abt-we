@@ -15,15 +15,7 @@ class Location < ApplicationRecord
   end
 
   def did_user_edit?(temp_location)
-    unless compare_location_info(temp_location, self)
-      self.reformat_address
-      self.gather_api_location_data
-      self
-      session[:temp_location] = self
-      flash[:error] = "Thank you. Does this look correct?"
-      render "confirm"
-      return
-    end
+    compare_location_info(temp_location, self)
   end
 
   def update_api_data
