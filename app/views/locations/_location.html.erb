@@ -1,10 +1,11 @@
 <div class="col-md-3" style="margin:0; padding:0;">
   <div id="card-background" style="background-image: url(https://maps.googleapis.com/maps/api/staticmap?center=<%= location.latitude %>,<%= location.longitude %>&zoom=13&scale=false&size=600x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000);">
-    <h3 id="details"><%= link_to location.name, location, {id: 'font-color-hover-fix'} %></h3>
-    <strong id="details"><%= location.formatted_address %>
-    <!-- <%= link_to "Edit location", edit_location_path(location), {id: 'font-color-hover-fix'} %></strong> -->
-    <%= link_to 'Edit', edit_location_path(location),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>
-
+    <div id="color-fade">
+      <h3 id="details"><%= link_to location.name, location, {id: 'font-color-hover-fix'} %></h3>
+      <strong id="details"><%= location.formatted_address %>
+        <br>
+        <%= link_to 'Edit', edit_location_path(location),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', id: 'font-color-hover-fix'}  %>
+    </div>
   </div>
 </div>
 <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
