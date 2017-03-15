@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  resources :favorites
+
   resources :locations do
     resources :events, only: [:index]
   end
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :participants, only: [:create, :destroy, :update]
     resources :comments, only: [:create, :update, :destroy]
   end
-
+  post '/locations/confirm', to: 'locations#confirm'
   # /////Bootstrap Stuff/////
   get 'events/:id/edit', to: 'events#edit', :as => :edit
   # get 'locations/:id/edit', to: 'events#edit', :as => :edit_location
@@ -21,9 +21,14 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  post '/locations/confirm', to: 'locations#confirm'
 
-  resources :accounts, only: [:show]
+
+  resources :accounts, only: [:show] do
+    collection do
+      get "/favorites/locations", to: "locations#favorites"
+    end
+  end
+
   resources :registrations, only: [:new, :create]
   # resources :accounts
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

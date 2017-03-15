@@ -6,8 +6,8 @@ class AccountsController < ApplicationController
     @events=Event.where(creator: @account)
   end
 
-
   private
+
   def set_account
     @account = Account.find(params[:id])
   end

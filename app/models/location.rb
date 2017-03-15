@@ -1,7 +1,6 @@
 class Location < ApplicationRecord
-  has_many :favorite_locations
+  has_many :favorites
   
-
   validates :name, presence: true
   validates :longitude, presence: true
   validates :latitude, presence: true

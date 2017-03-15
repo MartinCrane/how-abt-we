@@ -44,20 +44,11 @@ ActiveRecord::Schema.define(version: 20170315134150) do
     t.integer  "capacity",    default: 1
   end
 
-  create_table "favorite_comments", force: :cascade do |t|
-    t.integer "comment_id"
-    t.integer "favorite_id"
-  end
-
-  create_table "favorite_locations", force: :cascade do |t|
-    t.integer "location_id"
-    t.integer "favorite_id"
-  end
-
   create_table "favorites", force: :cascade do |t|
     t.integer  "account_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "location_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "locations", force: :cascade do |t|
