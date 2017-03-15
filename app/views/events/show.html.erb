@@ -96,12 +96,9 @@
     <%= f.text_area :comment, id: "input" %>
     <%= f.submit "Make a comment", class: "submit", id: "widen-2" %>
     <% end %>
+    <%= render partial: 'events/comment', collection: @comments.order("created_at DESC") %>
     <!-- end comments -->
   </div>
 
-</div>
-<h2 id="title">All Comments</h2>
-<div class="row">
-  <%= render partial: 'events/comment', collection: @comments.order("created_at DESC") %>
 </div>
 <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
