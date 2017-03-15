@@ -3,7 +3,7 @@ class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :destroy]
   before_action :set_key, only: [:show]
   before_action :set_account, only: [:show, :edit, :update, :favorites]
-  before_action :set_favorite, only: [:show, :edit]
+
 
   def index
     @locations = Location.all
@@ -45,6 +45,7 @@ class LocationsController < ApplicationController
   end
 
   def show
+
   end
 
   def edit
@@ -58,7 +59,7 @@ class LocationsController < ApplicationController
       return
     end
     @location.update_location(location_params)
-    if location.save
+    if @location.save
       flash[:message] = "Location has been updated."
       redirect_to @location
     else
@@ -68,7 +69,8 @@ class LocationsController < ApplicationController
   end
 
   def favorites
-    @favorite_locations = @account.favorite.locations
+    @locations = @account.fav_locations
+    render :favorites
   end
 
   def destroy
@@ -109,16 +111,12 @@ class LocationsController < ApplicationController
     @account = Account.find(session[:account_id])
   end
 
-  def set_favorite
-    @favorite = @account.favorite.locations.include?(@location)
-  end
-
   def update_favorite?
     if !params[:favorite].nil?
       if params[:favorite] == "true"
-        @account.favorite.locations << @location
+        @account.fav_locations << @location
       else
-        @account.favorite.locations.delete(@location)
+        @account.fav_locations.delete(@location)
       end
       return true
     else

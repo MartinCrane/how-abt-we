@@ -5,9 +5,10 @@
       <h3>Address:</h5><br />
       <p><%= @location.formatted_address %></p>
       <br />
+      <%= render partial: 'favorite_button', locals: {account: @account, location: @location}%>
+      <br />
       <h5>Location Map:</h5><a href="http://maps.google.com/?q=<%=@location.latitude%>,<%=@location.longitude%>">Google Maps</a>
       <br />
-      <%= render partial: 'favorite_button', locals: {favorite_val: @favorite}%>
       <%= link_to "Edit location", edit_location_path(@location) %>
       <%= render 'shared/flash_messages' if !flash.empty? %>
     </div>
