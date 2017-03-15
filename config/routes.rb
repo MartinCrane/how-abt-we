@@ -6,12 +6,13 @@ Rails.application.routes.draw do
     resources :events, only: [:index]
   end
   resources :events, only: [:index, :new, :create, :show, :update] do
-    resources :participants, only: [:create, :destroy]
+    resources :participants, only: [:create, :destroy, :update]
     resources :comments, only: [:create, :update, :destroy]
   end
 
   # /////Bootstrap Stuff/////
   get 'events/:id/edit', to: 'events#edit', :as => :edit
+  # get 'locations/:id/edit', to: 'events#edit', :as => :edit_location
 
   get '/my-events', to: 'events#my_events'
   get '/attending', to: 'events#attending_events'

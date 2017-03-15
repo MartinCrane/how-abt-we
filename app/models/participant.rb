@@ -1,7 +1,7 @@
 class Participant < ApplicationRecord
   belongs_to :event
   belongs_to :account
-  validate :only_one, :is_creator, :check_capacity
+  validate :only_one, :is_creator, :check_capacity, :on => :create
 
   def self.exists?(event, current_user)
     Participant.find_by(event: event, account: current_user)

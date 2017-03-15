@@ -1,59 +1,107 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <h1 id="title" style="font-size: 50px"><%= @event.name %></h1>
-      <p>Creator of this event: <%= @event.creator.username %></p>
-      <p>Capacity: <%= @event.capacity %></p>
-      <p>Date: <%= @event.event_date %></p>
-      <p>Start: <%= @event.start_time %></p>
-      <p>End: <%= @event.end_time %></p>
-      <p>Location: <%= @event.location.name if @event.location %></p>
-      <p>Address: <%= @event.location.formatted_address if @event.location %></p>
+<div class="row">
+  <div class="col-md-6" id="card">
+    <!-- event info -->
+    <h1 id="title" style="font-size: 50px"><%= @event.name %></h1>
+    <p>Creator of this event: <%= @event.creator.username %></p>
+    <p>Capacity: <%= @event.capacity %></p>
+    <p>Date: <%= @event.event_date %></p>
+    <p>Start: <%= @event.start_time %></p>
+    <p>End: <%= @event.end_time %></p>
+    <p>Location: <%= @event.location.name if @event.location %></p>
+    <p>Address: <%= @event.location.formatted_address if @event.location %></p>
+    <!-- end event info -->
 
-      <h2>Participants</h2>
-      <%= @event.creator.username %> <em>(host)</em><br />
-      <% if @participants %>
+    <h2 id="title">Participants</h2>
+    <%= @event.creator.username %> <em>(host)</em><br />
+    <!-- Participant list -->
+    <% if @participants %>
       <% @participants.each do |participant| %>
       <%= participant.account.username %><br />
       <% end %>
-      <% else %>
+    <% else %>
       YOU HAVE NO FRIENDS :(
-      <% end %>
+    <% end %>
+    <!-- end participant list -->
 
-      <% if @event.location %>
+
+    <% if @event.location %>
       <%= render partial: 'locations/location_map', locals: {location: @event.location, key: @key} %>
-      <% end %>
-      <% if @event.creator==current_user && (@event.event_date.nil? || @event.event_date >= Date.today) %>
-      --- perhaps show this in a modal -- <br />
-      <!-- <%= render partial: 'events/form', locals:{event: @event} %> -->
-
-      <%= link_to 'Edit', edit_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>
-      -----------------------------------
-      <% end %>
-    </div>
-    <div class="col-md-4">
-      <% if @attending %>
-      <h2>You are attending this event!</h2>
-      <%= form_for [@event, @attending], method: :delete do |f| %>
-      <%= f.submit "I can't attend", class: "submit" %>
-      <% end %>
-      <% else %>
-      <h2>Are you attending?</h2>
-      <%= form_for [@event, @participant] do |f| %>
-      <%= f.submit "I want to go!", class: "submit" %>
-      <% end %>
-      <% end %>
-      <h2>Comments</h2>
-      <%= form_for [@event, @comment] do |f| %>
-      <%= f.text_area :comment, id: "input" %>
-      <%= f.submit "Make a comment", class: "submit", id: "widen-2" %>
-      <% end %>
-    </div>
+    <% end %>
 
   </div>
-  <h2 id="title">All Comments</h2>
-  <div class="row">
-    <%= render partial: 'events/comment', collection: @comments.order("created_at DESC") %>
+  <div class="col-md-6">
+    <!-- creator panel -->
+    <% if @event.creator==current_user %>
+    <div>
+      <h1>Creator Panel</h1>
+      <% if @event.event_date.nil? || @event.event_date >= Date.today %>
+        <%= link_to 'Edit Event Info', edit_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>
+      <% end %>
+      <!-- attendance -->
+      <% if @event.event_date && @event.event_date < Date.today %>
+        Take Attendance
+        <% if @participants %>
+          <table style="width: 100%; border: 1px solid #fff; text-align: left; padding: 5px;">
+            <tr style="padding: 5px; border-bottom: 2px solid #fff;">
+              <th>Participant</th><th>Attended</th><th>Did not attend</th><th></th>
+            </tr>
+            <% @participants.each do |participant| %>
+              <tr>
+                <%= form_for [@event, participant] do |f| %>
+                <td><%= participant.account.username %></td>
+                <td><%= f.radio_button :attended, true %></td>
+                <td><%= f.radio_button :attended, false %></td>
+                <td><%= f.submit "Update", class: "btn btn-primary"%></td>
+                <% end %>
+              </tr>
+            <% end %>
+          </table>
+        <% end %>
+      <% end %>
+      <!-- end attendance -->
+    </div>
+    <% end %>
+    <!-- end creator panel -->
+
+    <!-- attending -->
+    <% if @event.event_date.nil? || @event.event_date >= Date.today %>
+      <div>
+        <% if @attending %>
+        <h2>You are attending this event!</h2>
+        <%= form_for [@event, @attending], method: :delete do |f| %>
+        <%= f.submit "I can't attend", class: "submit" %>
+        <% end %>
+        <% else %>
+        <h2>Are you attending?</h2>
+        <%= form_for [@event, @participant] do |f| %>
+        <%= f.submit "I want to go!", class: "submit" %>
+        <% end %>
+        <% end %>
+      </div>
+    <% end %>
+    <!-- attending -->
+
+    <!-- rate this event (after it has passed) -->
+    <% if @event.event_date && @event.event_date < Date.today %>
+    <div>
+      <h2>This event has passed!</h2>
+      <p>Did you attend? Rate the event</p>
+    </div>
+    <% end %>
+    <!-- end rate event -->
+
+    <!-- comments -->
+    <h2>Comments</h2>
+    <%= form_for [@event, @comment] do |f| %>
+    <%= f.text_area :comment, id: "input" %>
+    <%= f.submit "Make a comment", class: "submit", id: "widen-2" %>
+    <% end %>
+    <!-- end comments -->
   </div>
+
+</div>
+<h2 id="title">All Comments</h2>
+<div class="row">
+  <%= render partial: 'events/comment', collection: @comments.order("created_at DESC") %>
 </div>
 <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
