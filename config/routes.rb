@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :events, only: [:index]
   end
   resources :events, only: [:index, :new, :create, :show, :update] do
-    resources :participants, only: [:create, :destroy]
+    resources :participants, only: [:create, :destroy, :update]
     resources :comments, only: [:create, :update, :destroy]
   end
 
