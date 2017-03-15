@@ -41,7 +41,19 @@ div[class ^= "col"]{
   height: 200px;
   text-align: center;
   background: rgba(255, 255, 255, .4);
-  padding: 5px;
+  border-radius: 5px;
+}
+
+#color-fade{
+   background-color: rgba(62, 154, 158, 0.4);
+   display: inline-block;
+   height: 100%;
+   width: 100%;
+   border-radius: 5px;
+}
+
+#font-color-hover-fix{
+  color: white;
 }
 
 #font-color-hover-fix:hover{
