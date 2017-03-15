@@ -22,7 +22,6 @@ class LocationsController < ApplicationController
   end
 
   def create
-    clear_flash_errors
     location = Location.new(location_params)
     unless location.did_user_edit?(temp_location)
       location.reformat_address
