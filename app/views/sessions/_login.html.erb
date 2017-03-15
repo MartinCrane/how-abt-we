@@ -1,0 +1,16 @@
+<%= form_for account, url: login_path do |f| %>
+
+<div>
+
+  Username: <%= f.text_field :username %><br />
+</div>
+
+<div>
+
+  Password: <%= f.password_field :password %><br />
+</div>
+
+
+    <%= f.submit "Log In", class: "btn btn-primary" %>
+
+  <% end %>
