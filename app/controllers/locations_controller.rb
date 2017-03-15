@@ -50,6 +50,7 @@ class LocationsController < ApplicationController
 
   def edit
     respond_to :html, :js
+    @user = current_user
   end
 
   def update
