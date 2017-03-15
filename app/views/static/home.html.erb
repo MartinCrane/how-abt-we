@@ -1,25 +1,42 @@
 
-<div class="container">
-  <div class="row enter">
+<!-- <div class="container"> -->
+  <div class="row">
     <%= render partial: "static/sunset" %>
-    <div class="col-md-12">
+      <div class="col-md-12">
 
-      <h1 id="logo">How About We //</h1>
-    </div>
+        <h1 id="logo">How About We...</h1>
+        <div class="rw-wrapper">
+
+	         <h2 class="rw-sentence">
+            <div class="rw-words rw-words-2">
+        			<span>go see a show</span>
+        			<span>watch a movie</span>
+              <span>have an orgy</span>
+        			<span>play soccer</span>
+        			<span>have dinner</span>
+        		</div>
+          </h2>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-md-offset-3">
 
 
-    <div class="col-md-6" id="login">
-      <%= link_to 'Login', login_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>
-    </div>
 
-    <div class="col-md-6" id="register">
-      <%= link_to 'Register', new_registration_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window-2'}  %>
+      <!-- <div class="col-md-6" id="login"> -->
+        <%= link_to 'Login', login_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: "btn btn-success", style: "font-size: 24px; width: 100%;"}  %>
+      <!-- </div> -->
+
+
+      <!-- <div class="col-md-6" id="register"> -->
+        <%= link_to 'Register', new_registration_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window-2', class: "btn btn-success", style: "font-size: 24px; width: 100%; margin-top: 10px;"}  %>
+      <!-- </div> -->
 
     </div>
     <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
     <div id="modal-window-2" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
 
   </div>
-</div>
-<div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
-<div id="modal-window-2" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+<!-- </div> -->
+<!-- <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+<div id="modal-window-2" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div> -->

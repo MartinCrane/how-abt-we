@@ -39,6 +39,9 @@
    -webkit-transform: matrix3d(1,0,0,0,0.00,1,0.002,0,0,-0.02,1,0,5,0,0,1);
  }
 
+ @import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,700');
+
+
 body {
  background-color: #505050;
  color: white;
@@ -48,8 +51,10 @@ body {
 #logo{
   text-align: center;
   font-family: 'Titillium Web', sans-serif;
-  color: #3E9AB2;
+  font-weight: 700;
+  color: #fff;
   font-size: 8em;
+  -webkit-text-stroke: 3px #3E9AB2;
 }
 
 .enter{
