@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170315134150) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +44,22 @@ ActiveRecord::Schema.define(version: 20170315134150) do
     t.time     "start_time"
     t.time     "end_time"
     t.integer  "capacity",    default: 1
+  end
+
+  create_table "favorite_comments", force: :cascade do |t|
+    t.integer "comment_id"
+    t.integer "favorite_id"
+  end
+
+  create_table "favorite_locations", force: :cascade do |t|
+    t.integer "location_id"
+    t.integer "favorite_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "locations", force: :cascade do |t|
