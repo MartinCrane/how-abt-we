@@ -64,13 +64,16 @@
 </nav>
 
     <div id="map" style="display: none;"></div>
-    <%= render 'shared/flash_messages' if !flash.empty? %>
-<%= render 'shared/float_script'%>
     <div class="container" id="outer">
 
       <%= yield %>
     </div>
-
+    <%= javascript_include_tag "https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.10/dist/js/alertify.js" %>
+    <% if !flash.empty? %>
+      <script>
+          alertify.error("<h1 style='color: black;'><%= flash[:error] %></h1>");
+      </script>
+    <% end %>
   </body>
 
 </html>
