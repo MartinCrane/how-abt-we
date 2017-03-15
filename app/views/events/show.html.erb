@@ -98,6 +98,7 @@
     <%= f.text_area :comment, id: "input" %><br />
     <%= f.submit "Make a comment", class: "submit", id: "widen-2" %>
     <% end %>
+    <%= render partial: 'events/comment', collection: @comments.order("created_at DESC") %>
     <!-- end comments -->
 
       <%= render partial: 'events/comment', collection: @comments.order("created_at DESC") %>
