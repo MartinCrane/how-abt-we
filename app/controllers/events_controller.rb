@@ -18,10 +18,13 @@ class EventsController < ApplicationController
   end
 
   def new
+
     @event = Event.new
   end
 
+
   def create
+    byebug
     event = Event.init_event(current_user, event_params)
     event.location = Location.find(event_params[:location_id]) unless event_params[:location_id].empty?
     if event.valid?
