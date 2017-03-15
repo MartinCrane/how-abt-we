@@ -24,7 +24,7 @@
   #card{
     background-color: #B8B8B8;
     border-radius: 5px;
-    padding-bottom: 10px;  
+    padding-bottom: 10px;
   }
 
  .float {
@@ -128,4 +128,10 @@ body{
   background-color: #fff;
   height: auto; /* Set the opacity for a slightly transparent Google Form */
   color: #000;
+}
+
+.modal-body{
+  background-image: url("../img/car.jpg");
+  size: 100%;
+  background-position: center;
 }
