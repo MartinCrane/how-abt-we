@@ -4,3 +4,205 @@
 body {
   background-image: url("https://unsplash.com/?photo=lylCw4zcA7I");
 }
+
+@keyframes moveUp {
+  0% {
+    //top
+    transform: translateY(0vh);
+  }
+  100% {
+    //bottom
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes movesideways {
+  0% {
+    //top
+    transform: translateX(0%);
+  }
+  100% {
+    //bottom
+    transform: translateX(100%);
+  }
+}
+
+@keyframes nightday{
+  0% {background-color: #C9D5E5;}
+  10%{background-color: #C9D5E5;}
+    20% { background-color: #A0B1C1;}
+    30% { background-color: #8FA4B5;}
+  40% { background-color: #7F94A7;}
+  50% { background-color: #718198;}
+   60% { background-color: #5E708A;}
+  70%{ background-color: #4F5E77;}
+  80%{ background-color: #42516A;}
+  90% { background-color: #2B3754;}
+  100% { background-color: #000000;}
+}
+
+@keyframes nightday2{
+    0% {background-color: #C9D5E5;}
+  10%{background-color: #C9D5E5;}
+    20% { background-color: #BEC7CB;}
+    30% { background-color: #B0B7BF;}
+  40% { background-color: #A1A7B2;}
+  50% { background-color: #9197A2;}
+   60% { background-color: #71788B;}
+  70% { background-color: #5E697D;}
+  80% { background-color: #5D6175;}
+   90% {background-color: #384256;}
+  100% { background-color: #000000;}
+}
+
+@keyframes nightday3{
+    0% {background-color: #C9D5E5;}
+  10%{background-color: #C9D5E5;}
+    20% { background-color: #E2DECC;}
+    30% { background-color: #D3CBBF;}
+  40% { background-color: #C5BCB4;}
+  50% { background-color: #B6AA9E;}
+   60% { background-color: #98918D;}
+  70% {background-color: #897D7B;}
+  80% {background-color: #7A6C69;}
+    90% {background-color: #484550;}
+   100% { background-color: #000000;}
+}
+@keyframes nightday4{
+    0% {background-color: #C9D5E5;}
+  10%{background-color: #C9D5E5;}
+    20% { background-color: #FFE1AD;}
+    30% { background-color: #EDCA9E;}
+  40% { background-color: #E5B98C;}
+  50% { background-color: #D8A87C;}
+   60% { background-color: #B48D6C;}
+  70% {background-color: #A4704F;}
+  80% {background-color: #A57253;}
+  90% { background-color: #5F3E36;}
+  100% { background-color: #000000;}
+}
+@keyframes nightday5{
+    0% {background-color: #C9D5E5;}
+  10%{background-color: #C9D5E5;}
+   20% { background-color: #FED588;}
+  30% { background-color: #F7A86D;}
+  40% { background-color: #E6955C;}
+  50% { background-color: #D56E47;}
+   60% { background-color: #AC503A;}
+  70% {background-color: #903B30;}
+  80% {background-color: #7C2F2A;}
+  90% {background-color: #551E1F;}
+  100% { background-color: #000000;}
+}
+
+.bg{
+  width: 100%;
+  height: 20%;
+  position: absolute;
+  left: 0;
+}
+
+.body1{
+  top: 0;
+  animation: nightday 5s ease-in-out 3s infinite alternate-reverse;
+}
+
+.body2{
+  top: 20%;
+  animation: nightday2 5s ease-in-out 3s infinite alternate-reverse;
+}
+
+.body3{
+  top: 40%;
+  animation: nightday3 5s ease-in-out 3s infinite alternate-reverse;
+}
+
+.body4{
+  top: 60%;
+  animation: nightday4 5s ease-in-out 3s infinite alternate-reverse;
+}
+
+.body5{
+  top: 80%;
+  animation: nightday5 5s ease-in-out 3s infinite alternate-reverse;
+}
+
+.rays {
+  animation:  moveUp 5s ease-in-out 3s infinite alternate-reverse;
+}
+
+.sun{
+  background-color: #F5D659;
+  border-radius: 50px;
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  box-shadow: 1px 1px 20px #F5D659;
+}
+
+.rays{
+  position: absolute;
+  background-color: rgba(245,214,89,.1);
+  border-radius: 75px;
+  width: 140px;
+  height: 140px;
+}
+
+.triangle {
+    position: absolute;
+    bottom: 0px;
+    width: 0;
+    height: 0;
+    border-bottom: 190px solid #231207;
+    border-left: 210px solid transparent;
+    border-right: 210px solid transparent;
+}
+
+.tr1{ left: 100px;
+border-bottom: 120px solid #231207;}
+.tr2{ left: 300px;}
+.tr3{ left: 500px;}
+.tr4{ left: 800px;
+border-bottom: 120px solid #231207;}
+
+.clouds{animation:  movesideways 3s ease-in-out 2s infinite alternate-reverse;
+opacity: .3
+}
+
+.cloud{
+    position: absolute;
+    left: 50px;
+    top: 40px;
+    background-color: #fff;
+    border-radius: 40px;
+    width: 80px;
+    height: 80px;
+}
+
+.cloud1{
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  background-color: #fff;
+  border-radius: 60px;
+  width: 120px;
+  height: 120px;
+}
+.cloud2{
+    position: absolute;
+    left: 120px;
+    top:115px;
+    background-color: #fff;
+    border-radius: 30px;
+    width: 60px;
+    height: 60px;
+}
+.cloud3{
+    position: absolute;
+    left: 140px;
+    top: 90px;
+    background-color: #fff;
+    border-radius: 40px;
+    width: 80px;
+    height: 80px;
+}
