@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :favorites
   resources :locations do
     resources :events, only: [:index]
   end
