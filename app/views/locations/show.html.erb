@@ -7,18 +7,18 @@
       <br />
       <%= render partial: 'favorite_button', locals: {account: @account, location: @location}%>
       <br />
+      <%= button_to 'New Event', locations_newevent_path, :method => :post, class: 'submit', params: {location_id: @location.id} %>
+      <br />
       <h5>Location Map:</h5><a href="http://maps.google.com/?q=<%=@location.latitude%>,<%=@location.longitude%>">Google Maps</a>
       <br />
-      <!-- <%= link_to "Edit location", edit_location_path(@location) %> -->
       <%= link_to 'Edit', edit_location_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>
       <%= render 'shared/flash_messages' if !flash.empty? %>
     </div>
   </div>
   <div class="col-md-12 separate">
-  <h3 id="title">Events at this location</h3>
-  <div class="row">
-  <%= render partial: 'events/event', collection: @location.events.order(:event_date) %>
-
-  </div>
-  </p>
+    <h3 id="title">Events at this location</h3>
+      <div class="row">
+        <%= render partial: 'events/event', collection: @location.events.order(:event_date) %>
+      </div>
+    </p>
   </div>

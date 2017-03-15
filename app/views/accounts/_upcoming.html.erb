@@ -8,7 +8,7 @@
       <% else %>
       <strong>Attending: </strong>
       <% end %>
-      <%= link_to event.name, event %><br />
+      <%= link_to event.name, event, id: 'font-color-hover-fix' %><br />
     <% end %>
   <% else %>
     <em>You have no events</em>

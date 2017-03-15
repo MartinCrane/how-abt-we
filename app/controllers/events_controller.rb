@@ -21,15 +21,15 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
+
   def create
-    event = Event.init_event(current_user, event_params)
-    event.location = Location.find(event_params[:location_id]) unless event_params[:location_id].empty?
-    if event.valid?
-      event.save
-      redirect_to event
+    @event = Event.init_event(current_user, event_params)
+    @event.location = Location.find(event_params[:location_id]) unless event_params[:location_id].empty?
+    if @event.save
+      redirect_to @event
     else
-      flash[:error]= event.errors.full_messages[0]
-      redirect_to new_event_path
+      flash.now[:error]= @event.errors.full_messages[0]
+      render new_event_path
     end
   end
 

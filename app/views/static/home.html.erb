@@ -27,10 +27,15 @@
         <%= link_to 'Login', login_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: "btn btn-success", style: "font-size: 24px; width: 100%;"}  %>
       <!-- </div> -->
 
+
       <!-- <div class="col-md-6" id="register"> -->
         <%= link_to 'Register', new_registration_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window-2', class: "btn btn-success", style: "font-size: 24px; width: 100%; margin-top: 10px;"}  %>
       <!-- </div> -->
+
     </div>
+    <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+    <div id="modal-window-2" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+
   </div>
 <!-- </div> -->
 <!-- <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
