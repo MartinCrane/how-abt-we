@@ -3,6 +3,7 @@ class RegistrationsController < ApplicationController
   def new
     #sign-up form
     @account=Account.new
+    respond_to :html, :js
   end
 
   def create

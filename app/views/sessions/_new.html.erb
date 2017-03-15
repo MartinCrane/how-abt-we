@@ -1,5 +1,5 @@
 <div class="row">
-  <%= form_for @account, url: login_path do |f| %>
+  <%= form_for account, url: login_path do |f| %>
   <div class="col-md-6 session-form">
     <%= f.label :username, id: "label" %><br>
     <%= f.text_field :username, id: "input" %>
