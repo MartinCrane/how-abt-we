@@ -1,5 +1,4 @@
 
-
 <div class="container">
   <div class="row enter">
     <%= render partial: "static/sunset" %>
@@ -10,9 +9,7 @@
 
 
     <div class="col-md-6" id="login">
-      <% #render partial: 'sessions/login', locals: {account: @account} %>
       <%= link_to 'Login', login_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>
-
     </div>
 
     <div class="col-md-6" id="register">
@@ -24,3 +21,5 @@
 
   </div>
 </div>
+<div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+<div id="modal-window-2" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>

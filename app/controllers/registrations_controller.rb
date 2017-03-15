@@ -13,8 +13,8 @@ class RegistrationsController < ApplicationController
       session[:account_id]=account.id
       redirect_to account
     else
-      #flash[:error]=account.errors
-      redirect_to new_registration_path
+      flash[:error]=account.errors.full_messages[0]
+      redirect_to root_path
     end
     #sign-up creation
   end

@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
       redirect_to account
     else
       flash[:error]="Something went wrong"
-      redirect_to login_path
+      redirect_to root_path
     end
   end
 

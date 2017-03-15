@@ -8,22 +8,22 @@ body {
 @keyframes moveUp {
   0% {
     //top
-    transform: translateY(0%);
+    transform: translateY(0px);
   }
   100% {
     //bottom
-    transform: translateY(100%);
+    transform: translateY(400px);
   }
 }
 
 @keyframes movesideways {
   0% {
     //top
-    transform: translateX(0%);
+    transform: translateX(25%);
   }
   100% {
     //bottom
-    transform: translateX(100%);
+    transform: translateX(75%);
   }
 }
 
@@ -100,53 +100,63 @@ body {
   height: 20%;
   position: absolute;
   left: 0;
+  z-index: -1;
 }
 
 .body1{
   top: 0;
-  animation: nightday 5s ease-in-out 3s infinite alternate-reverse;
+  background-color: #718198;
+  animation: nightday 5s ease-in-out 0s infinite alternate-reverse;
 }
 
 .body2{
   top: 20%;
-  animation: nightday2 5s ease-in-out 3s infinite alternate-reverse;
+  background-color: #9197A2;
+  animation: nightday2 5s ease-in-out 0s infinite alternate-reverse;
 }
 
 .body3{
   top: 40%;
-  animation: nightday3 5s ease-in-out 3s infinite alternate-reverse;
+  background-color: #B6AA9E;
+  animation: nightday3 5s ease-in-out 0s infinite alternate-reverse;
 }
 
 .body4{
   top: 60%;
-  animation: nightday4 5s ease-in-out 3s infinite alternate-reverse;
+  background-color: #D8A87C;
+  animation: nightday4 5s ease-in-out 0s infinite alternate-reverse;
 }
 
 .body5{
   top: 80%;
-  animation: nightday5 5s ease-in-out 3s infinite alternate-reverse;
+  background-color: #D56E47;
+  animation: nightday5 5s ease-in-out 0s infinite alternate-reverse;
 }
 
 .rays {
-  animation:  moveUp 5s ease-in-out 3s infinite alternate-reverse;
+  animation:  moveUp 5s ease-in-out 0s infinite alternate-reverse;
 }
 
 .sun{
   background-color: #F5D659;
-  border-radius: 50px;
-  width: 100px;
-  height: 100px;
-  margin: 20px;
+  border-radius: 140px;
+  width: 280px;
+  height: 280px;
+  margin: 10px;
   box-shadow: 1px 1px 20px #F5D659;
 }
 
 .rays{
   position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
   background-color: rgba(245,214,89,.1);
-  border-radius: 75px;
-  width: 140px;
-  height: 140px;
-  z-index: 1;
+  border-radius: 150px;
+  width: 300px;
+  height: 300px;
+  z-index: 0;
 }
 
 .triangle {
@@ -166,7 +176,7 @@ border-bottom: 120px solid #231207;}
 .tr4{ left: 800px;
 border-bottom: 120px solid #231207;}
 
-.clouds{animation:  movesideways 3s ease-in-out 2s infinite alternate-reverse;
+.clouds{animation:  movesideways 3s ease-in-out 0s infinite alternate-reverse;
 opacity: .3
 }
 

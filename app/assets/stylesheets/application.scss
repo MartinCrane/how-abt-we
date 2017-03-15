@@ -43,6 +43,7 @@
 body {
  background-color: #505050;
  color: white;
+ overflow-x: hidden;
 }
 
 #logo{
@@ -141,4 +142,8 @@ body{
   size: 100%;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.width_box{
+  width: 100%
 }

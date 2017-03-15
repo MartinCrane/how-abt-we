@@ -1,42 +1,58 @@
 <%= form_for event do |f| %>
-  <div class="row">
+<br>
+<table align="center">
+    <div class="row">
+  <tr>
+      <div class="col-md-6">
+        <td><%= f.label :name, id: 'label' %></td>
+        <td><%= f.text_field :name, id: 'input', class: "width_box" %><br></td>
+      </div>
+  </tr>
+  <tr>
     <div class="col-md-6">
-      <%= f.label :name, id: 'label' %>
-      <%= f.text_field :name, id: 'input' %><br>
+      <td><%= f.label :capacity, id: 'label' %></td>
+      <td><%= f.number_field :capacity, id: 'input', class: "width_box" %></td>
     </div>
-
-    <div class="col-md-6">
-      <%= f.label :capacity, id: 'label' %>
-      <%= f.number_field :capacity, id: 'input' %>
-    </div>
+  </tr>
   </div>
 
   <div class="row">
+  <tr>
+      <div class="col-md-6">
+        <td><%= f.label :event_date, id: 'label' %></td>
+        <td><%= f.date_field :event_date, id: 'input', class: "width_box"%><br></td>
+      </div>
+  </tr>
+  <tr>
     <div class="col-md-6">
-      <%= f.label :event_date, id: 'label' %>
-      <%= f.date_field :event_date, id: 'input' %><br>
+      <td><%= f.label :start_time, id: 'label'%></td>
+      <td><%= f.time_field :start_time, id: 'input', class: "width_box"%><br></td>
     </div>
-
-    <div class="col-md-6">
-      <%= f.label :start_time, id: 'label' %>
-      <%= f.time_field :start_time, id: 'input' %><br>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <%= f.label :end_time, id: 'label' %>
-      <%= f.time_field :end_time, id: 'input' %><br>
-
-    </div>
-    <div class="col-md-6">
-      <%= f.label :location_id, id: 'label' %>
-      <%= f.collection_select(:location_id, Location.all, :id, :name, {:include_blank => true}, {id: 'input'}) %><br>
-    </div>
+  </tr>
   </div>
 
   <div class="row">
-    <div class="col-md-12" id="move-submit">
-      <%= f.submit "Create Event", class: "submit" %>
+    <tr>
+      <div class="col-md-6">
+        <td><%= f.label :end_time, id: 'label' %></td>
+        <td><%= f.time_field :end_time, id: 'input', class: "width_box"%><br></td>
+      </div>
+    </tr>
+    <tr>
+    <div class="col-md-6">
+      <td><%= f.label :location_id, id: 'label' %></td>
+      <td><%= f.collection_select(:location_id, Location.all, :id, :name, {:include_blank => true}, {id: 'input', class: "width_box"}) %><br></td>
     </div>
+  </tr>
+  </div>
+
+</table>
+
+  <div class="row">
+    <tr>
+      <div class="col-md-12" id="move-submit">
+        <td><%= f.submit "Create Event", class: "submit" %></td>
+      </div>
+    </tr>
   </div>
 <% end %>

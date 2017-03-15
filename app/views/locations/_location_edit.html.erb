@@ -1,31 +1,32 @@
+
 <%= form_for @location do |f| %>
-<table class="edit-location">
-    <tr>
-      <td><%= f.label :name, id: 'label' %></td>
-      <td><%= f.text_field :name, id: 'input' %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :street_number, id: 'label' %></td>
-      <td><%= f.text_field :street_number, id: 'input' %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :road, id: 'label' %></td>
-      <td><%= f.text_field :road, id: 'input' %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :city, id: 'label' %></td>
-      <td><%= f.text_field :city, id: 'input' %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :state, id: 'label' %></td>
-      <td><%= f.text_field :state, id: 'input' %></td>
-    </tr>
-    <%= f.hidden_field :longitude %>
-    <%= f.hidden_field :latitude %>
-    <%= f.hidden_field :address %>
-    <%= f.hidden_field :formatted_address %>
-    <%= f.hidden_field :country %>
-    <br />
-  </table>
-<p align="center"><%= f.submit "Edit Location", class: 'submit' %></p>
+ <table class="edit-location">
+     <tr>
+       <td><%= f.label :name, id: 'label' %></td>
+       <td><%= f.text_field :name, id: 'input' %></td>
+     </tr>
+     <tr>
+       <td><%= f.label :street_number, id: 'label' %></td>
+       <td><%= f.text_field :street_number, id: 'input' %></td>
+     </tr>
+     <tr>
+       <td><%= f.label :road, id: 'label' %></td>
+       <td><%= f.text_field :road, id: 'input' %></td>
+     </tr>
+     <tr>
+       <td><%= f.label :city, id: 'label' %></td>
+       <td><%= f.text_field :city, id: 'input' %></td>
+     </tr>
+     <tr>
+       <td><%= f.label :state, id: 'label' %></td>
+       <td><%= f.text_field :state, id: 'input' %></td>
+     </tr>
+     <%= f.hidden_field :longitude %>
+     <%= f.hidden_field :latitude %>
+     <%= f.hidden_field :address %>
+     <%= f.hidden_field :formatted_address %>
+     <%= f.hidden_field :country %>
+     <br />
+   </table>
+ <p align="center"><%= f.submit "Edit Location", class: 'submit' %></p>
 <% end %>
