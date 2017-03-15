@@ -1,0 +1,21 @@
+<script>
+$( "body" ).mousemove(function( event ) {
+  var PadWidth = -event.pageX * .000000001 ;
+  var PadHeight = -(event.pageY +900) * (event.pageX -600) *.0000000001;
+  var PadSkew = (event.pageY -700)  * 0.000000001;
+  var PadRot = (event.pageY+(event.pageX*.1)-600)/1000;
+  console.log(PadHeight)
+  $( ".mouse_float" ).css('-webkit-transform','matrix3d(1,'+(Math.sin(PadHeight))+',0,'+PadSkew+',0.00,1,0.002,'+PadHeight+',0,-0.02,1,'+PadHeight+',5,0,0,1)');
+  $( ".mouse_float_strong" ).css('-webkit-transform','matrix3d(1,'+(Math.sin(PadHeight*20))+',0,'+PadSkew*20+',0.00,1,0.002,'+PadHeight*20+',0,-0.02,1,'+PadHeight*20+',5,0,0,1)');
+
+  // $( "#mouse_float" ).css('-webkit-transform','rotate('+PadRot+'deg)');
+
+});
+//
+// $( "body" ).mousemove(function( event ) {
+//   var PadSkewM = (event.pageY*event.pageX*.000003) + 90 - (event.pageY*.002) - (event.pageX**2 *.0000002);
+//   var PadSkewT = (event.pageY *.1);
+//   // $( "#logo" ).css('width', PadSkewM + '%');
+//   $( ".mouse_float" ).css('left', PadSkewT + '%');
+// });
+</script>

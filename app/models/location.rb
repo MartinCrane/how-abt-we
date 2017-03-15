@@ -15,20 +15,23 @@ class Location < ApplicationRecord
   end
 
   def did_user_edit?(temp_location)
-    unless compare_location_info(temp_location, self)
-      self.reformat_address
-      self.gather_api_location_data
-      self
-      session[:temp_location] = self
-      flash[:error] = "Thank you. Does this look correct?"
-      render "confirm"
-      return
-    end
+    compare_location_info(temp_location, self)
   end
 
-  def update_api_data
-    self.reformat_address
-    self.gather_api_location_data
-    self.save
+  def update_location(params)
+    new_location = Location.new
+    new_location.update(params)
+    new_location.reformat_address
+    new_location.gather_api_location_data
+    self.name = new_location.name
+    self.address = new_location.address
+    self.street_number = new_location.street_number
+    self.road = new_location.road
+    self.city = new_location.city
+    self.state = new_location.state
+    self.country = new_location.country
+    self.latitude = new_location.latitude
+    self.longitude = new_location.longitude
+    self.formatted_address = new_location.formatted_address
   end
 end
