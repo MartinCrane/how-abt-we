@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   root 'static#home'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  get '/logout', to: 'sessions#destroy'
+  delete '/logout', to: 'sessions#destroy'
   post '/locations/confirm', to: 'locations#confirm'
 
   resources :accounts, only: [:show]

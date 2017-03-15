@@ -5,6 +5,11 @@ class SessionsController < ApplicationController
     @account=Account.new
   end
 
+  def destroy
+    reset_session
+    redirect_to "/"
+  end
+
   def create
     #login authentication
     account = Account.find_by(username: login_params[:username])
@@ -15,13 +20,6 @@ class SessionsController < ApplicationController
       flash[:error]="Something went wrong"
       redirect_to login_path
     end
-  end
-
-  def destroy
-    #log out
-
-    reset_session
-    redirect_to "/"
   end
 
   private
