@@ -7,7 +7,8 @@
       <br />
       <h5>Location Map:</h5><a href="http://maps.google.com/?q=<%=@location.latitude%>,<%=@location.longitude%>">Google Maps</a>
       <br />
-      <%= link_to "Edit location", edit_location_path(@location) %>
+      <!-- <%= link_to "Edit location", edit_location_path(@location) %> -->
+      <%= link_to 'Edit', edit_location_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>
       <%= render 'shared/flash_messages' if !flash.empty? %>
     </div>
   </div>
@@ -19,3 +20,4 @@
   </div>
   </p>
   </div>
+  <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
