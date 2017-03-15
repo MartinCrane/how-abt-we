@@ -20,7 +20,7 @@
   <tr>
       <div class="col-md-6">
         <td><%= f.label :event_date, id: 'label' %></td>
-        <td><%= f.date_field :event_date, id: 'input', class: "width_box"%><br></td>
+        <td><%= f.date_field :event_date, id: 'input', class: "width_box", value: Date.today%><br></td>
       </div>
   </tr>
   <tr>
