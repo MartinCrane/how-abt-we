@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   def new
     #login form
     @account=Account.new
+    respond_to :html, :js
   end
 
   def destroy

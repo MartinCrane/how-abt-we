@@ -21,6 +21,7 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
+
   def create
     @event = Event.init_event(current_user, event_params)
     @event.location = Location.find(event_params[:location_id]) unless event_params[:location_id].empty?
