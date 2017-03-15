@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :update, :destroy]
   end
 
+  # /////Bootstrap Stuff/////
+  get 'events/:id/edit', to: 'events#edit', :as => :edit
+
   get '/my-events', to: 'events#my_events'
   get '/attending', to: 'events#attending_events'
 

@@ -25,7 +25,9 @@
       <% end %>
       <% if @event.creator==current_user && (@event.event_date.nil? || @event.event_date >= Date.today) %>
       --- perhaps show this in a modal -- <br />
-      <%= render partial: 'events/form', locals:{event: @event} %>
+      <!-- <%= render partial: 'events/form', locals:{event: @event} %> -->
+
+      <%= link_to 'Edit', edit_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>
       -----------------------------------
       <% end %>
     </div>
@@ -54,3 +56,4 @@
     <%= render partial: 'events/comment', collection: @comments.order("created_at DESC") %>
   </div>
 </div>
+<div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
