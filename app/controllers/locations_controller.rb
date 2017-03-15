@@ -38,6 +38,7 @@ class LocationsController < ApplicationController
   end
 
   def edit
+    respond_to :html, :js
   end
 
   def update
