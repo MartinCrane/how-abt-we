@@ -10,30 +10,11 @@
     <p>Location: <%= @event.location.name if @event.location %></p>
     <p>Address: <%= @event.location.formatted_address if @event.location %></p>
     <!-- end event info -->
-
-    <h2 id="title">Participants</h2>
-    <%= @event.creator.username %> <em>(host)</em><br />
-    <!-- Participant list -->
-    <% if @participants %>
-      <% @participants.each do |participant| %>
-      <%= participant.account.username %><br />
-      <% end %>
-    <% else %>
-      YOU HAVE NO FRIENDS :(
-    <% end %>
-    <!-- end participant list -->
-
-
-    <% if @event.location %>
-      <%= render partial: 'locations/location_map', locals: {location: @event.location, key: @key} %>
-    <% end %>
-
-  </div>
-  <div class="col-md-6">
     <!-- creator panel -->
     <% if @event.creator==current_user %>
+    <hr />
     <div>
-      <h1>Creator Panel</h1>
+      <h3 id="title">Creator Panel</h1>
       <% if @event.event_date.nil? || @event.event_date >= Date.today %>
         <%= link_to 'Edit Event Info', edit_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>
       <% end %>
@@ -62,17 +43,17 @@
     </div>
     <% end %>
     <!-- end creator panel -->
-
+<hr />
     <!-- attending -->
     <% if @event.event_date.nil? || @event.event_date >= Date.today %>
       <div>
         <% if @attending %>
-        <h2>You are attending this event!</h2>
+        <h3 id="title">You are attending this event!</h2>
         <%= form_for [@event, @attending], method: :delete do |f| %>
         <%= f.submit "I can't attend", class: "submit" %>
         <% end %>
         <% else %>
-        <h2>Are you attending?</h2>
+        <h3 id="title">Are you attending?</h2>
         <%= form_for [@event, @participant] do |f| %>
         <%= f.submit "I want to go!", class: "submit" %>
         <% end %>
@@ -80,6 +61,27 @@
       </div>
     <% end %>
     <!-- attending -->
+    <hr />
+
+    <h3 id="title">Participants</h2>
+    <%= @event.creator.username %> <em>(host)</em><br />
+    <!-- Participant list -->
+    <% if @participants %>
+      <% @participants.each do |participant| %>
+      <%= participant.account.username %><br />
+      <% end %>
+    <% else %>
+      YOU HAVE NO FRIENDS :(
+    <% end %>
+    <!-- end participant list -->
+
+
+    <% if @event.location %>
+      <%= render partial: 'locations/location_map', locals: {location: @event.location, key: @key} %>
+    <% end %>
+
+  </div>
+  <div class="col-md-6">
 
     <!-- rate this event (after it has passed) -->
     <% if @event.event_date && @event.event_date < Date.today %>
@@ -93,12 +95,16 @@
     <!-- comments -->
     <h2>Comments</h2>
     <%= form_for [@event, @comment] do |f| %>
-    <%= f.text_area :comment, id: "input" %>
+    <%= f.text_area :comment, id: "input" %><br />
     <%= f.submit "Make a comment", class: "submit", id: "widen-2" %>
     <% end %>
     <%= render partial: 'events/comment', collection: @comments.order("created_at DESC") %>
     <!-- end comments -->
+
+      <%= render partial: 'events/comment', collection: @comments.order("created_at DESC") %>
+
+    <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+
   </div>
 
 </div>
-<div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>

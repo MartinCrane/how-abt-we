@@ -1,7 +1,16 @@
-<h1 id="logo">How About We //</h1>
+
+
 <div class="container">
   <div class="row enter">
+    <%= render partial: "static/sunset" %>
+    <div class="col-md-12">
+
+      <h1 id="logo">How About We //</h1>
+    </div>
+
+
     <div class="col-md-6" id="login">
+      <% #render partial: 'sessions/login', locals: {account: @account} %>
       <%= link_to "Login", login_path %>
     </div>
 
