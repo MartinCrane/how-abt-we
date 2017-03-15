@@ -54,8 +54,8 @@
           </ul>
         </li>
         <% else %>
-        <li><%= link_to "Login", login_path %></li>
-        <li><%= link_to "Register", new_registration_path %></li>
+        <li><%= link_to 'Login', login_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %></li>
+        <li><%= link_to 'Register', new_registration_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window-2'}  %></li>
         <% end %>
       </ul>
 
@@ -69,7 +69,11 @@
     <div class="container" id="outer">
 
       <%= yield %>
+      <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+      <div id="modal-window-2" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+
     </div>
+
     <%= javascript_include_tag "https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.10/dist/js/alertify.js" %>
     <% if !flash.empty? %>
       <script>
