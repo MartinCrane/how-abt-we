@@ -40,8 +40,8 @@
     </tr>
     <tr>
     <div class="col-md-6">
-      <td><%= f.label :location_id, id: 'label' %></td>
-      <td><%= f.collection_select(:location_id, Location.all, :id, :name, {:include_blank => true}, {id: 'input', class: "width_box"}) %><br></td>
+      <td><%= f.label :location_id, id: 'label' %>
+      <td><%= f.collection_select(:location_id, Location.all, :id, :name, {:include_blank => true}, {id: 'input', class: "width_box"})%><br></td>
     </div>
   </tr>
   </div>

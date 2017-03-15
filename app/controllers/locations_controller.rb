@@ -52,6 +52,12 @@ class LocationsController < ApplicationController
     respond_to :html, :js
   end
 
+  def new_event
+    @event = Event.new
+    @event.location = Location.find(params[:location_id])
+    render "/events/new"
+  end
+
   def update
     @location = Location.find_by(id: params[:id])
     if update_favorite?

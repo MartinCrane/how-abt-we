@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-
+  post '/locations/newevent', to: 'locations#new_event'
 
   resources :accounts, only: [:show] do
     collection do
