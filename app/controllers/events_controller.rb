@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :require_login
   before_action :set_key, only: [:show]
-  before_action :set_event, only: [:update, :show, :destroy]
+  before_action :set_event, only: [:update, :show, :destroy, :edit]
 
   def index
     @events=Event.all
@@ -39,6 +39,10 @@ class EventsController < ApplicationController
     @attending=Participant.exists?(@event, current_user)
     @participant=Participant.new
     @participants=Participant.where(event: @event)
+  end
+
+  def edit
+    respond_to :html, :js
   end
 
   def update
