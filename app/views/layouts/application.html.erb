@@ -66,26 +66,11 @@
 
     <div id="map" style="display: none;"></div>
     <%= render 'shared/flash_messages' if !flash.empty? %>
-
+<%= render 'shared/float_script'%>
     <div class="container" id="outer">
 
       <%= yield %>
     </div>
-
-
-    <br />
-    <br />
-    <br />
-    <br />
-    <% @accounts.each do |a| %>
-      <br />
-      USER
-      <%= a.username %>
-      <br />
-      <%= a.email %>
-      <br />
-    <% end   %>
-    <%= render 'shared/float_script'%>
 
   </body>
 

@@ -1,6 +1,6 @@
+<%= render partial: "static/sunset" %>
 <h1><%= @account.username %>'s upcoming events</h1>
 
 <div class="row" style="min-height: 100px;">
-
   <%= render partial: 'accounts/upcoming', collection: present_event(current_user) %>
 </div>

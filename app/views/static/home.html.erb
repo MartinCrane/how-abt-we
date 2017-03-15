@@ -1,12 +1,22 @@
-<h1 id="logo">How About We //</h1>
+
+
 <div class="container">
   <div class="row enter">
+    <%= render partial: "static/sunset" %>
+    <div class="col-md-12">
+
+      <h1 id="logo">How About We //</h1>
+    </div>
+
+
     <div class="col-md-6" id="login">
-      <%= link_to "Login", login_path %>
+      <%= link_to 'Login', login_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>
     </div>
 
     <div class="col-md-6" id="register">
-      <%= link_to "Register", new_registration_path %>
+      <%= link_to 'Register', new_registration_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window-2'}  %>
     </div>
   </div>
 </div>
+<div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+<div id="modal-window-2" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
