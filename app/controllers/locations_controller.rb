@@ -2,6 +2,8 @@ class LocationsController < ApplicationController
   before_action :require_login
   before_action :set_location, only: [:show, :edit, :destroy]
   before_action :set_key, only: [:show]
+  before_action :set_account, only: [:show, :edit, :update, :favorites]
+  before_action :set_favorite, only: [:show, :edit]
 
   def index
     @locations = Location.all
@@ -43,24 +45,30 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @user = current_user
   end
 
   def edit
     respond_to :html, :js
-    @user = current_user
   end
 
   def update
-    location = Location.find_by(id: params[:id])
-    location.update_location(location_params)
+    @location = Location.find_by(id: params[:id])
+    if update_favorite?
+      redirect_to @location
+      return
+    end
+    @location.update_location(location_params)
     if location.save
       flash[:message] = "Location has been updated."
-      redirect_to location
+      redirect_to @location
     else
-      flash[:message] = location.errors
-      redirect_to edit_location_path(location)
+      flash[:message] = @location.errors
+      redirect_to edit_location_path(@location)
     end
+  end
+
+  def favorites
+    @favorite_locations = @account.favorite.locations
   end
 
   def destroy
@@ -95,5 +103,26 @@ class LocationsController < ApplicationController
 
   def clear_flash_errors
     flash[:error] = ''
+  end
+
+  def set_account
+    @account = Account.find(session[:account_id])
+  end
+
+  def set_favorite
+    @favorite = @account.favorite.locations.include?(@location)
+  end
+
+  def update_favorite?
+    if !params[:favorite].nil?
+      if params[:favorite] == "true"
+        @account.favorite.locations << @location
+      else
+        @account.favorite.locations.delete(@location)
+      end
+      return true
+    else
+      return false
+    end
   end
 end

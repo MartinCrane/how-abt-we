@@ -1,4 +1,4 @@
-<%= form_for @location do |f| %>
+<%= form_for location do |f| %>
 <%= f.label :name, id: 'label' %>
 <%= f.text_field :name, id: 'input' %>
 <br />
@@ -14,6 +14,7 @@
 <%= f.label :state, id: 'label' %>
 <%= f.text_field :state, id: 'input' %>
 <br />
+
 <%= f.hidden_field :longitude %>
 <%= f.hidden_field :latitude %>
 <%= f.hidden_field :address %>

@@ -15,7 +15,6 @@ class Account < ApplicationRecord
   def build_default_favorite
     favorite = Favorite.create
     self.favorite = favorite
-    puts "CREATED"
     true
   end
 end

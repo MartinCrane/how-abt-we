@@ -1,0 +1,5 @@
+<% if favorite_val %>
+<%= button_to "Favorite", {:url =>location_path, :favorite => false}, :method => :patch, class: 'submit' %>
+<% else %>
+<%= button_to "Un-Favorite", {:url =>location_path, :favorite => true}, :method => :patch, class: 'submit' %>
+<% end %>

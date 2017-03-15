@@ -1,4 +1,4 @@
 
 <h1>New Location</h1>
-  <%= render 'location_form'%>
+  <%= render partial: 'location_form', locals: {location: @location}%>
   <%= render 'shared/flash_messages' if !flash.empty? %>
