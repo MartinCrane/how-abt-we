@@ -1,15 +1,16 @@
 
 <%= form_for location, url: locations_confirm_path, method: :post do |f| %>
-<div class="row">
-  <div class="col-md-6">
-    <%= f.label :name, id: 'label' %>
-    <%= f.text_field :name, id: 'input' %>
-  </div>
 
-  <table>
-    <tr >
+
+
+  <table align="center">
+    <tr>
+      <td><%= f.label :name, id: 'label' %></td>
+      <td><%= f.text_field :name, id: 'input', class: "width_box" %></td>
+    </tr>
+    <tr>
       <td><%= f.label :address, "Address", id: 'label' %></td>
-      <td><%= f.text_field :address, id: 'input' %></td>
+      <td><%= f.text_field :address, id: 'input', class: "width_box" %></td>
     </tr>
   </table>
 
