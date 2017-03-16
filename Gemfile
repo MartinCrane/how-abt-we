@@ -41,7 +41,8 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 #Gem to hide the API key from Public View on Github
-gem "figaro"
+gem 'figaro'
+gem 'rails_12factor'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
