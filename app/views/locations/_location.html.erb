@@ -1,5 +1,5 @@
 <div class="col-md-3" style="margin:0; padding:0;">
-  <div id="card-background" style="background-image: url(https://maps.googleapis.com/maps/api/staticmap?center=<%= location.latitude %>,<%= location.longitude %>&zoom=13&scale=false&size=600x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000);">
+  <div id="card-background" style="background-image: url(https://maps.googleapis.com/maps/api/staticmap?center=<%= location.latitude %>,<%= location.longitude %>&key=<%= key %>&zoom=13&scale=false&size=600x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000);">
     <div id="color-fade">
       <h3 id="details"><%= link_to location.name, location, {id: 'font-color-hover-fix'} %></h3>
       <strong id="details"><%= location.formatted_address %>
