@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app was created with Rails using the google maps API.
+Create an account, make an event, connect it to an existing
+location or make a new location. Comment on events that you
+are attending or have attended. RSVP to an event. If you created
+an event and it has happened already, you can let the app
+know who showed up! Favorite locations to be able to quickly
+find them.
 
-Things you may want to cover:
+* Ruby version: 2.3.1
 
-* Ruby version
+* SQL database
 
-* System dependencies
+* Bcrypt authentication
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Access to Google Maps API
