@@ -9584,14 +9584,14 @@ body {
 
 /* line 139, /Users/MCV/Development/Projects/how-abt-we/app/assets/stylesheets/application.scss */
 .modal-body {
-  background-image: url("../img/car.jpg");
+  background-color: black;
   size: 100%;
   background-position: center;
 }
 
 /* line 145, /Users/MCV/Development/Projects/how-abt-we/app/assets/stylesheets/application.scss */
 #locations-modal {
-  background-image: url("../img/lambo.jpg");
+  background-color: black;
   size: 100%;
   background-position: center;
   background-repeat: no-repeat;
